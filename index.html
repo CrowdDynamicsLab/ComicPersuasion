@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<link rel="stylesheet" href="http://cmx.io/v/0.1/cmx.css">
+<script src="http://cmx.io/v/0.1/cmx.js" charset="utf-8"></script>
+<script type="text/javascript" src="customize.js"></script>
+<style>.cmx-user-scene4 .cmx-text-border .cmx-path {stroke: orange}</style>
+<body>
+  <div style="max-width:900px; -webkit-transform:rotate(0deg)">
+
+    <scene id="scene1">
+      <drawing t="translate(0,31)">
+        <line stroke="green">
+          <point x="0" y="0"></point>
+          <point x="250" y="20"></point>
+        </line>
+      </drawing>
+      <actor id="actor1" t="translate(71,19) rotate(-2)" pose="-11,9|-5,117|-11,99|-11,89|-11,79|-11,59|-16,34|-21,9|-6,34|-1,9|-18,79|-18,59|-6,79|-1,59">
+      <bubble t="translate(9,11) rotate(2)" pose="0,0|-20,10|-81,49|19,66|-21,145|-73,109">
+          <tspan x="0" y="-3em">Last 2 weeks</tspan>
+          <tspan x="0" y="0em">I went</tspan>
+          <tspan x="0" y="1em">to the gym</tspan>
+          <tspan x="0" y="2em">less than</tspan>
+          <tspan x="0" y="3em">60% of my</tspan>
+          <tspan x="0" y="4em">friends!!</tspan>
+          <tspan x="8" y="76px">Oh! No..</tspan>
+        </bubble>
+      </actor>
+      <label t="translate(0,346)">
+        <tspan x="0" y="0em">One morning</tspan>
+      </label>
+      <actor id="actor2" t="translate(159,15)" pose="28,1|30,109|28,91|28,81|28,71|28,51|18,31|18,1|33,26|38,1|23,71|18,51|38,71|38,51">
+        <bubble t="translate(-2,-9)" pose="0,0|-14,24|-36,69|27,28|8,72|-35,93">
+          <tspan x="0" y="0em"></tspan>
+          <tspan x="20" y="1em">Hey!!</tspan>
+          <tspan x="15" y="2em">What's up</tspan>
+        </bubble>
+      </actor>
+      <script type='text/javascript'>
+        setActor1();
+        setActor2();
+        render();
+      </script>
+    </scene>
+
+    
+
+  </div>
+  <button type="button" onclick="render()">Rerender</button>
+  </body>
