@@ -1,38 +1,30 @@
-\BOOKMARK [1][-]{section.5}{Introduction}{}% 1
-\BOOKMARK [1][-]{section.7}{Related Work}{}% 2
-\BOOKMARK [2][-]{subsection.9}{Message Framing and Persuasion}{section.7}% 3
-\BOOKMARK [2][-]{subsection.11}{The Power of Comics}{section.7}% 4
-\BOOKMARK [2][-]{subsection.13}{Communicating through Comics}{section.7}% 5
-\BOOKMARK [2][-]{subsection.15}{Algorithmic generated Comics}{section.7}% 6
-\BOOKMARK [1][-]{section.17}{Method}{}% 7
-\BOOKMARK [2][-]{subsection.19}{System Design}{section.17}% 8
-\BOOKMARK [2][-]{subsection.21}{Experimental Design}{section.17}% 9
-\BOOKMARK [2][-]{subsection.23}{Procedure}{section.17}% 10
-\BOOKMARK [2][-]{subsection.25}{Measures}{section.17}% 11
-\BOOKMARK [1][-]{section.27}{Result}{}% 12
-\BOOKMARK [1][-]{section.29}{Discussion}{}% 13
-\BOOKMARK [2][-]{subsection.31}{Limitations}{section.29}% 14
-\BOOKMARK [2][-]{subsection.33}{Future Work}{section.29}% 15
-\BOOKMARK [1][-]{section.35}{Conclusions}{}% 16
-\BOOKMARK [1][-]{section.37}{Acknowledgments}{}% 17
-\BOOKMARK [1][-]{section.39}{References}{}% 18
-\BOOKMARK [2][-]{subsection.41}{Title and Authors}{section.39}% 19
-\BOOKMARK [2][-]{subsection.43}{Abstract and Keywords}{section.39}% 20
-\BOOKMARK [2][-]{subsection.45}{Normal or Body Text}{section.39}% 21
-\BOOKMARK [2][-]{subsection.47}{First Page Copyright Notice}{section.39}% 22
-\BOOKMARK [2][-]{subsection.49}{Subsequent Pages}{section.39}% 23
-\BOOKMARK [2][-]{subsection.52}{References and Citations}{section.39}% 24
-\BOOKMARK [1][-]{section.55}{Sections}{}% 25
-\BOOKMARK [2][-]{subsection.57}{Subsections}{section.55}% 26
-\BOOKMARK [3][-]{subsubsection.59}{Sub-subsections}{subsection.57}% 27
-\BOOKMARK [1][-]{section.61}{Figures/Captions}{}% 28
-\BOOKMARK [2][-]{subsection.64}{Inserting Images}{section.61}% 29
-\BOOKMARK [1][-]{section.66}{Quotations}{}% 30
-\BOOKMARK [1][-]{section.68}{Language, Style, and Content}{}% 31
-\BOOKMARK [1][-]{section.70}{Accessibility}{}% 32
-\BOOKMARK [1][-]{section.77}{Page Numbering, Headers and Footers}{}% 33
-\BOOKMARK [1][-]{section.79}{Producing and Testing PDF Files}{}% 34
-\BOOKMARK [1][-]{section.81}{Conclusion}{}% 35
-\BOOKMARK [1][-]{section.83}{Acknowledgments}{}% 36
-\BOOKMARK [1][-]{section.85}{References Format}{}% 37
-\BOOKMARK [1][-]{section.87}{References }{}% 38
+\BOOKMARK [1][-]{section.2}{ABSTRACT}{}% 1
+\BOOKMARK [1][-]{section.6}{INTRODUCTION}{}% 2
+\BOOKMARK [1][-]{section.8}{METHOD}{}% 3
+\BOOKMARK [2][-]{subsection.10}{Persuasive Messages}{section.8}% 4
+\BOOKMARK [2][-]{subsection.22}{Comic Style Messages Generation}{section.8}% 5
+\BOOKMARK [2][-]{subsection.24}{Question Design}{section.8}% 6
+\BOOKMARK [2][-]{subsection.26}{Participants Recruitment}{section.8}% 7
+\BOOKMARK [1][-]{section.28}{RESULT}{}% 8
+\BOOKMARK [1][-]{section.30}{Acknowledgments}{}% 9
+\BOOKMARK [1][-]{section.32}{References}{}% 10
+\BOOKMARK [2][-]{subsection.34}{Title and Authors}{section.32}% 11
+\BOOKMARK [2][-]{subsection.36}{Abstract and Keywords}{section.32}% 12
+\BOOKMARK [2][-]{subsection.38}{Normal or Body Text}{section.32}% 13
+\BOOKMARK [2][-]{subsection.40}{First Page Copyright Notice}{section.32}% 14
+\BOOKMARK [2][-]{subsection.42}{Subsequent Pages}{section.32}% 15
+\BOOKMARK [2][-]{subsection.45}{References and Citations}{section.32}% 16
+\BOOKMARK [1][-]{section.48}{Sections}{}% 17
+\BOOKMARK [2][-]{subsection.50}{Subsections}{section.48}% 18
+\BOOKMARK [3][-]{subsubsection.52}{Sub-subsections}{subsection.50}% 19
+\BOOKMARK [1][-]{section.54}{Figures/Captions}{}% 20
+\BOOKMARK [2][-]{subsection.57}{Inserting Images}{section.54}% 21
+\BOOKMARK [1][-]{section.59}{Quotations}{}% 22
+\BOOKMARK [1][-]{section.61}{Language, Style, and Content}{}% 23
+\BOOKMARK [1][-]{section.63}{Accessibility}{}% 24
+\BOOKMARK [1][-]{section.70}{Page Numbering, Headers and Footers}{}% 25
+\BOOKMARK [1][-]{section.72}{Producing and Testing PDF Files}{}% 26
+\BOOKMARK [1][-]{section.74}{Conclusion}{}% 27
+\BOOKMARK [1][-]{section.76}{Acknowledgments}{}% 28
+\BOOKMARK [1][-]{section.78}{References Format}{}% 29
+\BOOKMARK [1][-]{section.80}{References }{}% 30
