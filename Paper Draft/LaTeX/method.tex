@@ -1,31 +1,23 @@
 %!TEX root = proceedings.tex
 
-To test our hypotheses, we designed and conducted a field study through Amazon Mechanical Turk. In the experiment, participants will see five persuasive messages in both plain-text form and comic form side by side. Then, the participant will be asked which form of the message is perceived as more persuasive and how persuasive is it.
-\subsection{Persuasive Messages}
-All persuasive messages were focused on motivating exercise behavior. Persuasive messages were constructed by providing descriptive normative information, e.g. "In the past week, you spent more time at the gym than did 65\% of your friends", or descriptive exercise data, "Congrats! You have reached your goal of exercising three times a week." Since existed research suggests the persuasive power of a normative messages may differ between receivers who did not meet the social norm and receivers who outperforms the social norm, we also constructed two set of messages that targeting receivers who meet descriptive norm (Positive framed messages) and others who fail (Negative framed messages) by negating some key words (Less vs. More/ Bottom vs. Top/ Reached vs. didn't Reached). In our study, five persuasive messages were either all positive framed or all negative framed.\par
-The followings messages were presented in our study.\par
-\textit{Positive framed messages:}
-\begin{enumerate}
-  \item In the past week, you spent more time at the gym than did 65\% of your friends
-  \item Congrats! You have reached your goal of exercising three times a week.
-  \item Over the past month, you exercised more than did 90\% of your friends.
-  \item Your exercise activity is in the top 20\% of all your friends.
-  \item Over the past three weeks, you went to the gym more often than 60\% of your friends did.
-\end{enumerate}\par
-\textit{Negative framed messages:}
-\begin{enumerate}
-\item	In the past week, you spent less time at the gym than did 65\% of your friends
-\item Congrats! You did not reach your goal of exercising three times a week.
-\item	Over the past month, you exercised less than did 90\% of your friends.
-\item	Your exercise activity is in the bottom 20\% of all your friends.
-\item	Over the past three weeks, you went to the gym less often than 60\% of your friends did.
-\end{enumerate}\par
-\subsection{Comic Style Messages Generation}
-\subsection{Question Design}
-\textit{Display Order}. To mitigate any potential biases toward the display order of the plain-text representation and comic-style representation. The display order is randomly assigned, which means both plain-text representation and comic-style representation have equal chance to be displayed on the left side or the right side of the comparison.\par
-\textit{Attention Checker}. To control the data quality, we embedded two attention checkers in the experiment. The first one appears after the third comparison and the second one shows up after the last comparison. Both attention checkers asked subjects to choose a comic that matches a simple description, e.g. "Which of the following comics has two characters?".\par
-\textit{Scale Design}. The goal of the scale design is to monimize any potential ambiguity and biases.The scale in this study is a 7-point binary adjective items scale with Neutral at the middle. Two ends of the scale indicates the strongest perference toward Plain-Text representation or Comic-style representation.
-At the first iteration of the design, the direction of the scale changes corresponding to the display order of the two representations.
-However, in our pilot testing of the scale, participants reported that the scale was confusing because of the direction change. Some participants even did not notice the direction of the scale is corresponding to the messages, instead, they treated it as a fixed direction scale based on their first impression.Therefore, we changed our scale to a fixed direction scale. To avoid any potential demand characteristics introduced by the scale, e.g. the large number is desired or selecting item on the right side is expected, our final design does not contain any number, and the direction of the scale is randomly assigned for each participant with either plain-text always on the left or comic-style message always on the left.\par
-\subsection{Participants Recruitment}
-We published our HITs on Amazon Mechanical Turk titled with "A short survey about your exercise motivation". The price tag for each HIT was \$0.50, which were the rewards the workers would get regardless of their performance. On the HIT page, participants would see a link to our experiment site and a text input box for them to enter a six-digit completion code. Repeated worker will be rejected as we instructed in the task description.
+To test our hypotheses, we designed and conducted a between-subject field study through Amazon Mechanical Turk. In the experiment, participants will see a total of five persuasive messages in both plain-text form and comic form side by side. Then, the participant will be asked which form of the message is perceived as more persuasive and how persuasive is it.
+\subsection{Generating Comics}
+We developed an algorithmic comic generator that based on Comix I/O, an open source project that creates comics with stick figures using HTML markup. To maximizing the flexibility, we further developed the existing build with Canvas and rough.js. The generator allows us to create the comic representation of a persuasive message with variations in character’s gesture, inter-character distance and background shading.\par
+For gesture, we created the gesture library in a JSON format with two main categories: positive and negative corresponding to how the original message is framed, each with three levels of intensity. \par
+For the distance between two character, we have three levels of variance from close to far as well. The three level of distance represents the relationship between to characters as close friends, friends, acquaintance, from close to far. \par
+For the background shading, we have a total of three levels from white to dark grey. Each level represents a level of emotional intensity, white as lowest. \par
+To make a fair comparison between plain text representation and the comic form, the content of text information is the same in both conditions.  \par
+In total, for each message we have a total of 27 variations in terms of character gesture, inter-character, and background shading. In this study, 270 comics was created corresponding to 10 plain text messages. \par
+\subsection{Study Design}
+Once participants agreed to join our study, they will be randomly assigned to two conditions 1) positive message condition where all persuasive messages are framed in a positive way and 2) negative condition where all persuasive messages are framed in a negative way. In both condition, Participants will compare five persuasive messages.\par
+For each persuasive message, the participant will compare the same message in plain text and in a comic form on a 7 item Likert scale. \par
+Display Order.To mitigate any potential biases toward the display order of the plain-text representation and comic-style representation. The display order is randomly assigned, which means both plain-text representation and comic-style representation have equal chance to be displayed first on the left side.\par
+Attention Checker. To control the data quality, we embedded two attention checkers in the experiment. The first one appears after the third comparison and the second one shows up after the last comparison. Both attention checkers asked subjects to choose a comic that matches a simple description, e.g. "Which of the following comics has two characters?"\par
+Rating Scale Design. The 7 item Likert scale is ranging from -3 (left) to 3 (right) where 0 means neutral. The direction of the scale flips corresponding to the position of the comic and plain text. \par
+\subsection{Pilot Test on the Study Design
+}
+Before the actual experiment, we first tested our design in a small scale. We deployed our study on Amazon Mechanical Turk and received total of 10 feedbacks in 5 hours. Surprisingly, 5 of 10 participants reports the scale is confusing. 3 of them reports the flipping scale makes they spend more time on figuring out which side is which. One participants said “When I am answering my last question, I suddenly noticed the scale is different. I noticed the order of text and graph is changing but never notice the scale is changing as well. That’s really confusing!!”\par
+Based on their valuable feedback, we reiterated our study design. In the final design, we fixed the order of the rating scale. However, since the order is fixed, potential demand characteristics may be introduced by the scale, e.g. the researcher may want me to choose the larger number or items on the right/left side is expected. To minimize potential biases, in our final design, another layer of randomness was added.  The direction of the scale no longer changes respect to the position of the messages, but the direction of the scale is randomly assigned for each participant. Also, the number on the scale is replaced by text as neutral, slightly persuasive, text/comics is more persuasive and strongly persuasive.
+\subsection{Participants
+}
+We published our HITs on Amazon Mechanical Turk titled with "A short survey about your exercise motivation". The price tag for each HIT was \$0.50, which were the rewards the workers would get regardless of their performance. The threshold for participant to join our study is a 95\% Approval Rate. On the HIT page, participants would see a link to our experiment site and a text input box for them to enter a six-digit completion code. Repeated worker will be rejected as we instructed in the task description.
