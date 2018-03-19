@@ -185,5 +185,5 @@ TSWLatexianTemp*
 # .ipython notebooks checkpoints
 *checkpoint.ipynb
 
-# dont track proceedings.pdf
+# dont track final.pdf
 cscw2018-comic.pdf
