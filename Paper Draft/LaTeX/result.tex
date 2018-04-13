@@ -7,8 +7,8 @@
 \label{sub:Raw Data}
 In this section we describe the raw data counts, the number of participants, the number of people whose responses we dropped. The final number of observations
 
-\subsection{Analysis}
-\label{sub:Analysis}
+\subsection{Bayesian Model}
+\label{sub:Bayesian Model}
 We use a Bayesian formulation of the problem of identifying suitable predictors for the messages in comic form.~\textcite{Kay2016} provide an nice introduction on the appropriateness of Bayesian analysis for the HCI community. Bayesian analysis is attractive in our experiment due to two advantages: shifting the conversation from ``did it work'' to ``how strong is the effect''; and benefits to small $n$ studies.
 
 In our experiment, the problem is that of ordinal regression, since the responses are on a Likert scale. There are five independent variables: gesture of the participants in the comic;  distance between the two characters; comic shading; whether the information was positively framed or negatively framed; and whether we presented the comic panel to the left or to the right. The last manipulation to guard against information ordering effects. Thus, we need to estimate the effect on the responses for each of these variables.
@@ -33,4 +33,31 @@ We define the weights $\beta_i$ corresponding to the predictors $x_i$ as follows
 
 We draw the weights $\beta_i$ from a Cauchy distribution, a weakly informative prior with a fat tail. We normalize the predictors $x_i$ to have a mean of 0 and variance of 1; this normalization (also known as ``centering'') improves inference. The intuition behind the parameters for the Cauchy distribution: the mean of the intercept $\beta_0$ should center around $(1+L)/2=4$, when the predictors have no effect; similarly, $\beta_i, i\neq 0$ should center around 0, when the corresponding predictor has no effect. Notice that we are setting the location (or center) of the Cauchy distribution---due to the scale parameter set to $L^2$, these weights $\beta_i$ can take a wide range of values. As an alternative, we can draw the weights $\beta_i \sim N(0, L^2)$ from a Normal prior; the advantage of a weakly informative prior like the Cauchy distribution is that it allows for greater possibility of outliers in the data in contrast to the Normal distribution~\cite{Kay2016}.
 
-We analyzed the data using PyMC3~\cite{Salvatier2016}, a popular framework for Bayesian inference. Computational techniques for Bayesian inference use a stochastic sampling technique called Markov Chain Monte Carlo (MCMC) that samples the posterior distribution $P(\theta | D)$, where we want to estimate the parameters $\theta$ given the observations $D$. The Gelman-Rubin statistic $\hat{R}$ was around 1, indicating that the different sampling chains converged.
+Thus far, we have discussed how to generate a Normally distributed response variable $r$. However, what we see in the experiment is not this response variable, but an ordinal variable. The subjects use internal thresholds $\{\theta_i\}$ to determine when to indicate ``strongly disagree'', ``disagree'' etc. Thus with a 7 point Likert scale, we have 6 thresholds. The probability that we will see an ordinal response $y=k$ is $P(y=k | \mu, \sigma, \{\theta_i\})$, where, $\{\theta_i\}$ is the set of thresholds used by the subjects. We assume that while these thresholds are unknown, all subjects use the same thresholds. Since the response $r$ is Normally distributed, we can compute the probabilities as follows:
+
+\begin{equation}
+ P(y=k | \mu, \sigma, \{\theta_i\}) = \Phi \left (\frac{\theta_k - \mu}{\sigma} \right) - \Phi \left(\frac{\theta_{k-1} - \mu}{\sigma} \right).
+\end{equation}
+Where, $\Phi$ represents the cumulative density function for the Normal distribution. In other words, the probability that we will see ordinal response $k$ is the area under the Normal distribution with parameters $\mu, \sigma$ between thresholds $\theta_{k-1}$ and $\theta_k$.
+
+The thresholds $\theta_i, i \in [1, \ldots, k]$ have two degrees of freedom in that a simple translation of the response will translate the thresholds. Consistent with~\textcite[][p. 674]{Kruschke2014}, we set $\theta_1\equiv1.5$ and $\theta_6\equiv6.5$, leaving us with four hidden threshold parameters. We specify these parameters as follows:
+\begin{equation}
+ \theta_i \sim N(i+0.5, 1/2), i \in [2, 3, 4, 5].
+\end{equation}
+
+\subsection{Analysis}
+\label{sub:Analysis}
+
+We analyzed the data using PyMC3~\cite{Salvatier2016}, a popular framework for Bayesian inference. Computational techniques for Bayesian inference use a stochastic sampling technique called Markov Chain Monte Carlo (MCMC) that samples the posterior distribution $P(\theta | D)$, where we want to estimate the parameters $\theta$ given the observations $D$. In particular, we used the Metropolis-Hastings sampler. The Gelman-Rubin statistic $\hat{R}$ was around 1, indicating that the different sampling chains converged.
+
+\begin{figure}
+ \includegraphics[width=0.67\textwidth]{./hari-code/mean-effect-main.pdf}
+ \caption{The posterior density plot for the mean ($\mu$), and the effect size.  The plots show High Posterior Density (HPD) intervals, which represent the region with 95\% of the density. Notice that the HPD interval for $\mu$ is $[4.349, 4,703]$ and excludes 4 (the neutral response value), implying that on average, the response to the comic panel was more persuasive than the text. The figure for the effect size show a moderate effect with mode $0.32$; since the HPD interval $[0.211, 0.445 ]$ excludes 0, we can be confident about the effect.}
+ \label{fig:main-experiment-effect}
+\end{figure}
+
+\begin{figure}
+ \includegraphics[width=\textwidth]{./hari-code/beta-main.pdf}
+ \caption{The posterior density plot for the coefficients ($\beta_i$).  The plots show High Posterior Density (HPD) intervals, which represent the region with 95\% of the density. Notice that the HPD intervals for gesture $[0.03, 0.347]$ (the character gesture) and shading $[0.036, 0.36]$ exclude 0, implying that they have an effect on the response. The HPD intervals for distance between characters, framing condition (positive or negatively framed message) and comic position (comic on the left or on the right of the text) include 0, and thus show no credible effect on the response.}
+ \label{fig:beta-main}
+\end{figure}
