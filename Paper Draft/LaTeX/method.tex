@@ -1,9 +1,9 @@
 %!TEX root = cscw2018-comic.tex
-In this study, we composed persuasive messages in both plain text and comic representations to compare the difference in their persuasive power and potential elements in the comics that may influence the persuasiveness. The main goal of all messages are the same, persuading readers to engage more exercise. The main reason to choose this goal are 1) As a basic daily activity everyone has the need to exercise. 2) People can easily understand the message and relate to themselves. 3) Engaging more exercise is mostly based on audience own willingness instead of any other subjective resources.\par
+In this study, we investigated persuadee's preferential choice between the plain-text representation and the comic representation of persuasive messages and understood how different comic elements affect persuadee's preference. We first composed five persuasive messages in plain text form and then created their corresponding comic representation. To answer our research question, we conducted a field study on Amazon Mechanical Turk. \par
 \subsection{Composing Persuasive Messages in Plain Text}
-Borrowing the idea from Psychology and Behavioral Economics, the key persuasive technique we adopted here is implying social norm through the messages (e.g. how participant's friends are doing). Also, we incorporate the idea from Tversky and Kahneman that people will be influenced differently if the same message is framed as risk averse or risk taking. Therefore, we created two sets of messages that either framed from a positive standpoint or a negative standpoint. \par
-The followings messages were presented in our study.\par
-\textit{Positive framed messages:}
+Borrowing the idea from Psychology and Behavioral Economics, the key persuasive technique we adopted here is implying social norm through the messages (e.g. how participant's friends are doing). Also, we incorporate the idea from Tversky and Kahneman that people will be influenced differently if the same message is framed as risk averse or risk taking \cite{tversky1981framing}. The main goal of all messages is the same, persuading the target persuadee to engage more exercise. The main reasons to choose this topics are 1) As a basic daily activity everyone has the need to exercise. 2) People can easily understand the message and relate to themselves. 3) Engaging more exercise is mostly based on audience own willingness instead of any other subjective resources.\par
+Therefore, we created two sets of messages that either framed from a positive standpoint or a negative standpoint. The followings messages were presented in our study.\par
+\textit{Positive framed persuasive messages:}
 \begin{enumerate}
  \item In the past week, you spent more time at the gym than did 65\% of your friends
  \item Congrats! You have reached your goal of exercising three times a week.
@@ -11,7 +11,7 @@ The followings messages were presented in our study.\par
  \item Your exercise activity is in the top 20\% of all your friends.
  \item Over the past three weeks, you went to the gym more often than 60\% of your friends did.
 \end{enumerate}\par
-\textit{Negative framed messages:}
+\textit{Negative framed persuasive messages:}
 \begin{enumerate}
  \item	In the past week, you spent less time at the gym than did 65\% of your friends
  \item Congrats! You did not reach your goal of exercising three times a week.
@@ -20,26 +20,22 @@ The followings messages were presented in our study.\par
  \item	Over the past three weeks, you went to the gym less often than 60\% of your friends did.
 \end{enumerate}
 
-\subsection{Communicating through Comics}
-As a form of art, the creation of comics has few limitations. Although there is no common template that could describe all comics, if we take a closer look at each comic, it is not hard to see that every comic consists of several fundamental components. We categorize these comic elements into different groups:
-\begin{enumerate}
- \item	characters,
- \item gesture,
- \item	background color/shading,
- \item	word bubble,
-\end{enumerate}\par
-In this study, to represent persuasive messages in a comic form, we need to determine each of those four parameters.\par
-As Scott McCloud mentioned, the reader is more likely to project him/herself onto the character in the comic when the comic getting abstract [citation]. By taking the perspective of the character, the reader will internalize the information his/her character trying to express or receive. If the information is persuasive, the internalization will imply a higher chance of expected behavior change. Therefore, in this study, we choose to use an abstract yet well-recognized comic style, the xkcd style created by Randall Munroe, in our generated persuasive comic messages.\par
-Beside the abstractness of the character, we believe the relationship between characters is also important. In real world, previous research suggests that messages are more persuasive if the person communicating the ideas is someone the receiver related [citation]. People are more likely to believe their close friends than strangers [citation]. In abstract comics, the relationship between characters is usually modeled by the distance between characters [citation]. So, it is reasonable to believe the link still holds in the world of comics as the reader tends to project his/herself onto the character. Therefore, we hypothesized that the distance between characters in a comic may influence the persuasive power.\par
-The gesture of a character is another important component in the comic. The gesture of a character can help reader to understand what happens and the emotion of the character. Different gestures also imply the intensity of an emotion. As a common technique, cartoonists often use the gesture to intensify the feeling that they want to express to the reader. For a persuasive message, the intensified emotion may make the message more memorable than a plain tone. Thus, in this study, the gesture is another key element that we believe may moderate the effectiveness of a comic message.\par
-A rich body of research has demonstrated the relationship between color or background shading and the emotion. In comics, the color of elements or the background shading contributes significantly to the feelings as well. However, as xkcd style are mostly seen in black and white, we suspect and confirmed in our pilot study that color backgronud does not go well with generated comics (see pilot test 1). In the main study, we only manipulate the background shading in gray scale to show its affect on the persuasiveness. \par
-The word bubble is the most common place in comics to incorporate text information. In a persuasive comic, the word bubble expresses the text content of the message.  \par
-
 \subsection{Generating Comics}
 In this study, we create a based template for all comic messages that includes two characters in a conversation and the scenario is 'One day, your friend has something to tell you.'\par
 
-We developed an algorithmic comic generator that based on Comix I/O, an open source project that creates comics with stick figures using HTML markup. To maximizing the flexibility, we further developed the existing build with Canvas and rough.js. The generator allows us to create the comic representation of a persuasive message with variations in character’s gesture, inter-character distance and background shading.\par
-For gesture, we created the gesture library in a JSON format with two main categories: positive and negative corresponding to how the original message is framed, each with three levels of intensity. \par
+We developed an algorithmic comic generator that based on Comix I/O, an open source project that creates comics with stick figures using HTML markup \cite{cmx.io}. To maximizing the flexibility, we further developed the existing build with Canvas and rough.js \cite{canvasjs,rough.js}. The generator allows us to create the comic representation of a persuasive message in XKCD style \cite{munroe2009xkcd} and with variations in character's gesture, inter-character distance and background shading.\par
+
+\begin{figure}[t]
+    \centering
+    \begin{tabular}{c}
+    \subfloat[Three levels of gesture intensity for positive framed messages from neutral to the happiest]{\label{figur:1a}\includegraphics[width = 0.5 \columnwidth]{figures/pos_figures}} \\
+    \subfloat[Three levels of gesture intensity for negative framed messages from neutral to the most frustrated ]{\label{figur:1b}\includegraphics[width = 0.5 \columnwidth]{figures/neg_figures}}\\
+    \end{tabular}
+    \caption{Different character gestures to communicate various levels of emotional intensity}
+    \label{figur:figures}
+\end{figure}
+
+For gesture, we created the gesture library in a JSON format with two main categories: positive and negative corresponding to how the original message is framed, each with three levels of emotional intensity see Figure~\ref{figur:figures}. \par
 For the distance between two character, we have three levels of variance from close to far as well. The three level of distance represents the relationship between to characters as close friends, friends, acquaintance, from close to far. \par
 For the background shading, we have a total of three levels from white to dark grey. Each level represents a level of emotional intensity, white as lowest. \par
 To make a fair comparison between plain text representation and the comic form, the content of text information is the same in both conditions.  \par
