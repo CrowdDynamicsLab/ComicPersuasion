@@ -1,0 +1,27 @@
+color:
+
+b1: frame
+b2: location
+b3: color
+
+b0: 4.275
+b1: [-0.133  0.133]
+b2: [ 0.003 -0.057  0.054]
+b3: [-0.184  0.184]
+ySigma: 1.441
+
+Main:
+
+b0 is mean, 
+b1 is gesture,
+b2 is shading, 
+b3: distance, 
+b4: framing, 
+y sigma is the standard deviation
+
+b0: 4.524
+b1: [-0.195  0.089  0.106]
+b2: [-0.218  0.101  0.118]
+b3: [-0.043 -0.057  0.099]
+b4: [ 0.051 -0.051]
+ySigma: 1.614
