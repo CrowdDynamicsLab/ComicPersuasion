@@ -36,7 +36,8 @@ Then, since we assume that the metric variable $y$ is Normally distributed, our 
 By drawing the standard deviation variables $\sigma_{\beta, i}$ from a Gamma distribution, the values of each element of $\beta_i$ informs the other elements. Notice that we draw the variances $\sigma_{\beta, i}$ of each predictor $i$ from an independent Gamma distribution, implying that the variances (equivalently, the extent of deflections from the mean) for each predictor can be different. Furthermore, the ``information sharing'' among variables is common to hierarchical Bayesian models and is an important reason why Bayesian models work so well with small datasets\footnote{The sharing of information causes the variance of each individual element $\beta_{i,j}$ to move towards the group variance, a phenomena known as ``shrinkage.'' }. The main advantage of using a Gamma distribution is that we can specify a non-zero mode, important in controlling shrinkage in hierarchical models.
 
 \begin{figure}
- \includegraphics[width=\textwidth]{./figures/generative_model.pdf}
+ \centering
+ \includegraphics[width=0.67\textwidth]{./figures/generative_model.pdf}
  \caption{The figure shows the hierarchical Bayesian model specification, corresponding to~\Crefrange{eq:response-main}{eq:gamma-distribution}.}
  \label{fig:generative-main}
 \end{figure}
@@ -58,21 +59,28 @@ In this section, we developed a hierarchical Bayesian formulation to model the s
 \subsection{Analysis}
 \label{sub:Analysis}
 
-We analyzed the data using PyMC3~\cite{Salvatier2016}, a popular framework for Bayesian inference. Computational techniques for Bayesian inference use a stochastic sampling technique called Markov Chain Monte Carlo (MCMC) that samples the posterior distribution $P(\theta | D)$, where we want to estimate the parameters $\theta$ given the observations $D$. In particular, we used the Metropolis-Hastings sampler. The Gelman-Rubin statistic $\hat{R}$ was around 1, indicating that the different sampling chains converged. The modal values of the coefficients are as follows:
+We analyzed the data using PyMC3~\cite{Salvatier2016}, a popular framework for Bayesian inference. Computational techniques for Bayesian inference use a stochastic sampling technique called Markov Chain Monte Carlo (MCMC) that samples the posterior distribution $P(\theta | D)$, where we want to estimate the parameters $\theta$ given the observations $D$. In particular, we used the Metropolis-Hastings sampler. The Gelman-Rubin statistic $\hat{R}$ was around 1, indicating that the different sampling chains converged. The modal values of the coefficients are shown in~\Cref{tab:modal values}.:
 
 \begin{table}[htb]%\footnotesize
  \centering
  \caption{Modal coefficient values $\beta_{0-4}$. Some coefficients are vectors as they represent the displacement from the mean for different conditions of that variable. For example, since gesture has three experimental conditions, $\beta_1$ is a vector of length 3.}\label{tab:modal values}
  \begin{tabular}{@{}rl@{}} \toprule
-  Coefficient                     & Values                     \\ \midrule
-  Intercept ($\beta_0$)           & $4.524$                    \\
-  Gesture ($\beta_1$)             & $[-0.218, 0.101, 0.118]$   \\
-  Shading ($\beta_2$)             & $ [-0.218 , 0.101, 0.118]$ \\
-  Distance ($\beta_3$)            & $[-0.043, -0.057, 0.099]$  \\
-  Framing ($\beta_4$)             & $[ 0.051, -0.051]$         \\
-  Standard Deviation ($\sigma_y$) & $1.614$                    \\ \bottomrule
+  Coefficient                                       & Values                     \\ \midrule
+  Intercept ($\beta_0$)                             & $4.524$                    \\
+  Gesture: [Neutral, Medium, Extreme] ($\beta_1$)   & $[-0.218, 0.101, 0.118]$   \\
+  Shading: [Neutral, Light Gray, Gray] ($\beta_2$)  & $ [-0.218 , 0.101, 0.118]$ \\
+  Distance: [Closest, Medium, Farthest] ($\beta_3$) & $[-0.043, -0.057, 0.099]$  \\
+  Framing: [Negative, Positive] ($\beta_4$)         & $[ 0.051, -0.051]$         \\
+  Standard Deviation ($\sigma_y$)                   & $1.614$                    \\ \bottomrule
  \end{tabular}
 \end{table}
+
+
+\Cref{fig:main-experiment-effect} shows the mean effect and the effect size, as well as the contrast between positive and negative messages. The mean effect has a mode at $\mu=4.53$ with the High Posterior Density (HPD\footnote{The HPD interval is the location of 95\% of the posterior density. This is similar to, but different from the idea of confidence interval used in classical statistics. See~\textcite{Hoekstra2014} for a discussion on the misinterpretation of confidence intervals.}) interval of $[4.35, 4.70]$. Since the HPD lies outside a meaningful ROPE (Region of Practical Equivalence)\footnote{Unlike classical statistics, where one can ask for example, if the two means for two treatments are different $P(\mu_1\neq \mu_2)$, in Bayesian statistics, one asks if the HPD interval of the distribution $P(\mu_1-\mu_2)$, the difference of the means of the two treatments, excludes an interval where we can consider the two treatments equivalent. This equivalence interval is domain dependent. In the Lickert scale, one could argue that $[4 \pm 0.25]$, is a meaningful ROPE for the mean effect, since the neutral effect case is $\mu=4$, although smaller ROPEs of $[4 \pm 0.1]$ are also used.} of $4 \pm 0.25$, the result implies that there is a clear effect due to the treatment. Furthermore, the figure shows a moderate effect size of $0.33$; we consider an effect of $0.2$ to be small, and an effect of $0.5$ is a medium sized effect. Since the distribution excludes the ROPE interval $[0 \pm 0.1]$, the discovered effect size is significant.
+
+
+~\Cref{subfig-2:framing} shows the contrasts between a negatively framed message and that of a positively framed message. The figure shows that a negatively framed message seems to have more of an effect, but since the distribution includes a ROPE of $0 \pm 0.1$, the effect is not significant. Slightly more than $80\%$ of the posterior lies beyond 0, suggesting that effects of a negatively framed message may be more clear in a larger study.
+
 
 
 \begin{figure}
@@ -82,24 +90,36 @@ We analyzed the data using PyMC3~\cite{Salvatier2016}, a popular framework for B
  \subfloat[Information framing contrast\label{subfig-2:framing}]{%
   \includegraphics[width=0.33\textwidth]{./hari-code/factors_framing_contrasts_main-noint.pdf}
  }
- \caption{~\Cref{subfig-1:mean-effect} showsHigh Posterior Density (HPD) intervals for the mean response $\mu$ and effect sizes $\sigma_y$. HPD represent the region with 95\% of the density. Notice that the HPD interval for $\mu$ is $[4.35, 4.70]$ and excludes 4 (the neutral response value), implying that on average, the response to the comic panel was more persuasive than the text. The figure for effect size shows a moderate effect with mode $0.33$; since the HPD interval $[0.21, 0.44]$ excludes 0, we can be confident about the effect.~\Cref{subfig-2:framing} shows the contrasts between negatively framed message with a positively framed message. The modal value is $0.08$, but since the HPD interval $[-0.12, 0.36]$ overlaps with 0, there is no appreciable effect (interestingly 80\% of the density lies in the region greater than 0.)}
+ \caption{~\Cref{subfig-1:mean-effect} shows the High Posterior Density (HPD) intervals for the mean response $\mu$ and effect sizes $\sigma_y$. HPD represent the region with 95\% of the density. Notice that the HPD interval for $\mu$ is $[4.35, 4.70]$ and excludes a ROPE of $[4\pm 0.1]$ (the interval includes 4, the neutral response value), implying that on average, the response to the comic panel was more persuasive than the text. The figure for effect size shows a moderate effect with mode $0.33$; since the HPD interval $[0.21, 0.44]$ excludes a ROPE of $[0\pm 0.1]$, we can be confident about the effect.~\Cref{subfig-2:framing} shows the contrasts between negatively framed message with a positively framed message. The modal value is $0.10$, but since the HPD interval $[-0.13, 0.36]$ overlaps with 0, there is no appreciable effect (but notice that 80\% of the density lies in the region greater than 0.)}
  \label{fig:main-experiment-effect}
 \end{figure}
 
+~\Cref{fig:theta-main} shows the posterior distribution of the thresholds $\{\theta_i\}$. We notice that the distributions for $\theta_2, \theta_3, \theta_5$ are outside  ROPE intervals $2.5 \pm 0.1, 3.5 \pm 0.1, 5.5 \pm 0.1$, implying that the discovered thresholds are significant.
+
+\begin{figure}
+ \includegraphics[width=\textwidth]{./hari-code/factors_theta_values_main-noint.pdf}
+ \caption{The figures show the posterior densities of the different values of $\{\theta_i\}$, the thresholds estimated from the data. Notice that while the modal values are all different from the ideal cases $\{2.5, 3.5, 4.5, 5.5\}$, the posterior for $\theta_2$ is outside the ROPE of $[2.5\pm 0.1]$, and the posterior densities for $\theta_3$ and $\theta_5$ are just outside the corresponding ROPEs of $[3.5 \pm 0.1]$ and $[5.5 \pm 0.1]$.}
+ \label{fig:theta-main}
+\end{figure}
+
+~\Crefrange{fig:gesture-contrasts-main}{fig:distance-contrasts-main}, show contrasts due to gesture, shading and distance. The results shown in~\Cref{fig:gesture-contrasts-main} indicate that while there is no significant difference between the gestures (all posteriors include a rope of $[0 \pm 0.1]$ ) a change from the neutral gesture has strong effect (more than 96\% of the posterior excludes 0), but that extreme and medium gesture show almost no difference. The results shown in~\Cref{fig:shading-contrasts-main} indicate that while there  is no significant difference between the gestures (all posteriors include a rope of $[0 \pm 0.1]$ ), a change from a neutral white background produces a strong effect (more than 97\% of the posterior excludes 0), but there is no discernible difference between light gray and gray background color.~\Cref{fig:distance-contrasts-main} shows that while there  is no significant difference between the distance conditions (all posteriors include a rope of $[0 \pm 0.1]$ ), a change to the farthest distance between the comic characters produces a moderate effect (more than 83\% of the posterior excludes 0); there is no discernible difference between the closest and the medium distance conditions.
+
 \begin{figure}
  \includegraphics[width=\textwidth]{./hari-code/factors_gesture_contrasts_main-noint.pdf}
- \caption{gesture contrasts}
+ \caption{The figure shows the contrast distribution for gestures; that is, it shows the distribution of $\beta_{1,i} - \beta_{1,j}$, where $i$ and $j$ are two different gesture conditions. The figures show that no difference distribution excludes $0$, hence none of the differences are significant. Both ``Medium'' and ``Extreme'' gestures have stronger effects on the preference towards comic when compared to ``Neutral'' (more than 96\% of the density is greater than 0); There is little difference between ``Extreme'' and ``Medium'' gestures. The result suggests that anything other than a neutral gesture is makes the comic panel more salient.}
  \label{fig:gesture-contrasts-main}
 \end{figure}
 
 \begin{figure}
  \includegraphics[width=\textwidth]{./hari-code/factors_shading_contrasts_main-noint.pdf}
- \caption{shading contrasts}
+ \caption{The figure shows the contrast distribution for shading; that is, it shows the distribution of $\beta_{2,i} - \beta_{2,j}$, where $i$ and $j$ are two different gesture conditions. The figures show that no difference distribution excludes $0$, hence none of the differences are significant. Both ``Light Gray'' and ``Gray'' shading have stronger effects on the preference towards comic when compared to ``White'' (more than 97\% of the density is greater than 0); There is little difference between ``Light Gray'' and ``Gray.'' The result suggests that anything other than neutral makes the comic message salient.}
  \label{fig:shading-contrasts-main}
 \end{figure}
 
 \begin{figure}
  \includegraphics[width=\textwidth]{./hari-code/factors_distance_contrasts_main-noint.pdf}
- \caption{distance contrasts}
+ \caption{The figure shows the contrast distribution for distance; that is, it shows the distribution of $\beta_{3,i} - \beta_{3,j}$, where $i$ and $j$ are two different distance conditions. The figures show that no difference distribution excludes $0$, hence none of the differences are significant. Both ``Farthest'' shading have stronger effects on the preference towards comic when compared to ``Closest''  or ``Medium'' (more than 83\% of the density is greater than 0); There is little difference between ``Closest'' and ``Medium.'' The result suggests that extreme distances between are needed for them to be salient in the comic.}
  \label{fig:distance-contrasts-main}
 \end{figure}
+
+In this section, we presented a hierarchical Bayesian model to analyze the overall effect of using a comic to communicate facts, and understand the effect of three comic elements (gesture, shading and distance) and that of information framing. The results show that the use of comic produces a significant effect ($\mu=4.53$), with an modal effect size of $0.33$. Moving away from neutral gestures, neutral shadings produces a strong effect; the using large distance between comic characters produces a moderate effect. Next we discuss the findings, including qualitative feedback from the Turkers.
