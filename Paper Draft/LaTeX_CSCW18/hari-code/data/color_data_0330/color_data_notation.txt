@@ -1,0 +1,13 @@
+data notation
+color
+0 orange
+1 green
+color_position
+0 figure
+1 text
+2 ground line
+condition
+0 negative framed message
+1 positive framed message
+y (preference)
+positive means color is preferred
