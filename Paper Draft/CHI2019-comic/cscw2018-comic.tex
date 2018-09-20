@@ -1,4 +1,5 @@
-\documentclass[format=sigchi, natbib=false, review=false, anonymous=true, screen=true]{acmart}
+\documentclass[format=sigchi, natbib=false, review=true, authordraft=false, anonymous=true, screen=true]{acmart}
+\settopmatter{printccs=false,printacmref=false}
 
 % using biblatex
 \let\citename\relax
@@ -11,6 +12,7 @@
  urldate=comp,
  url=false,
  maxbibnames=9,
+ maxcitenames=1,
  backref=false,
  backend=biber,
  style=ACM-Reference-Format,
@@ -47,26 +49,29 @@ language=american]{biblatex}
 
 % Copyright
 %\setcopyright{acmcopyright}
-\setcopyright{acmlicensed}
+% \setcopyright{acmlicensed}
 %\setcopyright{rightsretained}
 %\setcopyright{usgov}
 %\setcopyright{usgovmixed}
 %\setcopyright{cagov}
 %\setcopyright{cagovmixed}
+\setcopyright{none}
 
 % DOI
-\acmDOI{0000001.0000001}
+% \acmDOI{0000001.0000001}
+\acmDOI{}
 
-% Paper history
-\received{February 2007}
-\received[revised]{March 2009}
-\received[accepted]{June 2009}
+% % Paper history
+\acmConference[]{Submitted to CHI}{2019}{Glasgow, UK.}
+% \received{February 2007}
+% \received[revised]{March 2009}
+% \received[accepted]{June 2009}
 
 
 % Document starts
 \begin{document}
 % Title portion. Note the short title for running heads
-\title[The Abstract Comic Form for Persusaion]{Should We Use an Abstract Comic Form to Persuade?}
+\title[The Abstract Comic Form for Persuasion]{Should We Use an Abstract Comic Form to Persuade?}
 
 
 \author{Ziang Xiao}
@@ -149,15 +154,21 @@ language=american]{biblatex}
 % The default list of authors is too long for headers.
 
 \input{intro.tex}
+\clearpage
 \section{Related Work}
 \input{relatedwork.tex}
+\clearpage
 \input{theoreticalframework.tex}
+\clearpage
 \input{method.tex}
 \input{result.tex}
+\clearpage
 \input{method2.tex}
 \input{result2.tex}
+\clearpage
 \input{discussion}
 \input{conclusion}
+\clearpage
 \printbibliography
 % \bibliographystyle{ACM-Reference-Format}
 % \bibliography{sample}
