@@ -5,7 +5,7 @@
 % \subsection{Method}
 % \label{sec:Method}
 
-In this section, we discuss our methodology for evaluating the preference of the message shown in the abstract comic form over the plain text message. First we discuss the example messages used with positive and negative framing. Then, we show how to synthesize the abstract comic messages. Then we discuss our study design on Amazon Mechanical Turk. 
+In this section, we discuss our methodology for evaluating the preference of the message shown in the abstract comic form over the plain text message. First we discuss the example messages used with positive and negative framing. Then, we show how to synthesize the abstract comic messages. Then we discuss our study design on Amazon Mechanical Turk.
 
 % how we instantiated the study on Amazon Mechanical Turk, followed by a discussion of how we evolved our experiment design based on Turker feedback. We conclude this section with a discussion of how we identified potential subjects on Amazon Mechanical Turk.
 
@@ -40,7 +40,7 @@ In this study, we adapted an open source comic generator~\cite{cmx.io} to genera
 \begin{figure}[t]
 	\centering
 	\begin{tabular}{cc}
-		\subfloat[Gestures for positive framed messages]{\label{figur:1a}\includegraphics[width = 0.4\columnwidth]{figures/pos_figures}} &   
+		\subfloat[Gestures for positive framed messages]{\label{figur:1a}\includegraphics[width = 0.4\columnwidth]{figures/pos_figures}} &
 		\subfloat[Gesture for negative framed messages ]{\label{figur:1b}\includegraphics[width = 0.4 \columnwidth]{figures/neg_figures}}\\
 	\end{tabular}
 	\caption{Different character gestures to communicate various levels of emotional intensity. The left figure shows gestures used in positive framed messages from neutral to the happiest. The right figure shows gesture used in negative framed messages from neutral to the most frustrated. }
@@ -50,8 +50,8 @@ In this study, we adapted an open source comic generator~\cite{cmx.io} to genera
 % \begin{figure}[t]
 % 	\centering
 % 	\begin{tabular}{ccc}
-% 		\subfloat[Close Friends]{\label{figur:3a}\includegraphics[width = 0.27\columnwidth]{figures/d0}} &   
-% 		\subfloat[Friends]{\label{figur:3b}\includegraphics[width = 0.27 \columnwidth]{figures/d1}}      &   
+% 		\subfloat[Close Friends]{\label{figur:3a}\includegraphics[width = 0.27\columnwidth]{figures/d0}} &
+% 		\subfloat[Friends]{\label{figur:3b}\includegraphics[width = 0.27 \columnwidth]{figures/d1}}      &
 % 		\subfloat[Acquaintance]{\label{figur:3c}\includegraphics[width = 0.27 \columnwidth]{figures/d2}}\\
 % 	\end{tabular}
 % 	\caption{Different distance to communicate various levels of relationship closeness}
@@ -61,17 +61,17 @@ In this study, we adapted an open source comic generator~\cite{cmx.io} to genera
 To make a fair comparison between plain text representation and the comic form, the content of text bubble is the same in both conditions. We discuss generation of elements of gesture, distance between characters and shading below.
 
 \begin{description}
-	\item[Gesture]: For each gesture, we created the gesture library in a JSON format with two main categories: positive and negative corresponding to how the original message is framed, each with three levels of emotional intensity see Figure~\ref{figur:figures}.
+	\item[Gesture]: We created the gesture library with two main categories: positive and negative corresponding to how the original message is framed, each with three levels of emotional intensity see Figure~\ref{figur:figures}.
 	\item[Inter-character distance]: For the distance between two characters, we have three levels of variance from close to medium separation to large separation. The three levels of distance represents the relationship between to characters as close friends, friends, and acquaintances.
-	\item[Shading]: For the background shading, we have a total of three levels from white to dark grey. Each level represents a level of emotional intensity, white as lowest.
+	\item[Shading]: For the background shading, we have three-levels , white, grey, and dark grey. Each color represents a level of emotional intensity correspondingly, white as ~\cite{scott1993understanding}.
 \end{description}
 
 
 % \begin{figure}[]
 % 	\centering
 % 	\begin{tabular}{ccc}
-% 		\subfloat[Lowest]{\label{figur:4a}\includegraphics[width = 0.27\columnwidth]{figures/s0}}    &   
-% 		\subfloat[Moderate]{\label{figur:4b}\includegraphics[width = 0.27 \columnwidth]{figures/s1}} &   
+% 		\subfloat[Lowest]{\label{figur:4a}\includegraphics[width = 0.27\columnwidth]{figures/s0}}    &
+% 		\subfloat[Moderate]{\label{figur:4b}\includegraphics[width = 0.27 \columnwidth]{figures/s1}} &
 % 		\subfloat[Intense]{\label{figur:4c}\includegraphics[width = 0.27 \columnwidth]{figures/s2}}\\
 % 	\end{tabular}
 % 	\caption{Different background to communicate various levels of emotional intensity}
