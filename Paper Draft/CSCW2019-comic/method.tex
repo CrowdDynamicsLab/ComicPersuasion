@@ -1,110 +1,78 @@
-%!TEX root = cscw2018-comic.tex
+%!TEX root = cscw2019-comic.tex
+\section{Method}
+\label{sec:Method}
+In this study on Amazon Mechanical Turk, we examine if the abstract comic can impcat a decision wiht monetary consequence. The persuasion goal is to ask participants to make more charitable donation with the real money. 
+%In this study, we examine if the abstract comic can impact a decision with monetary consequence. The aim of this study is to show the persuasiveness of the abstract comic in the real-life setting.  
+%In contrast, the first study demonstrated that participants prefer messages in abstract comic form over text, but did not demonstrate persuasiveness.
+% as more persuasive, it is unknown if the perceived persuasiveness can impact people's real-life decision making. So, we further studied the ability of abstract comics in persuading people to make decisions in the real life. 
+% In the second study, we conduct a field study on Amazon Mechanical Turk and compared the power between pure text messages and abstract comic messages in persuading people to donate with their real money. 
+In this section, we will introduce the experiment design and describe our study participants recruiting process.
 
-\section{Study on Preference: Method}
-\label{sec:preference}
-% \subsection{Method}
-% \label{sec:Method}
 
-In this section, we discuss our methodology for evaluating the preference of the message shown in the abstract comic form over the plain text message. First we discuss the messages used with positive and negative framing. Then, we show how to synthesize the abstract comic messages. Then we discuss our HIT design on the Mechanical Turk.
 
-% how we instantiated the study on Amazon Mechanical Turk, followed by a discussion of how we evolved our experiment design based on Turker feedback. We conclude this section with a discussion of how we identified potential subjects on Amazon Mechanical Turk.
 
-\subsection{Composing Persuasive Messages in Plain Text}
-We use simple text messages with a goal to persuade subjects to engage more physical activity. We chose this topic as the health is a topic to which our study participants could relate. We kept a single topic to avoid any any experimental confounds due to different topics.
+\subsection{Experiment Design}
+Since the main goal for this study is to compare power of a persuasive message on behaviors in two forms, the abstract comic and the pure text, we first constructed two experimental conditions, abstract-comic (see~\Cref{fig:basic three comic panel}) and pure-text. In the abstract-comic condition, participants will read a message asking if they are willing to support a charity in a three-panel abstract comic strip, whereas in the pure-text condition, participants will receive the same message in pure text form. To test idea of social proof, we then added a third condition, a three-panel comic that includes the normative behavior (see~\Cref{fig:basic three comic social proof}).
+% Additionally, we are also interested in if the abstract comic can leverage persuasive techniques to increase its persuasiveness. Hence, we incorporated the idea of social proof and created the third condition, social-proof-comic.
 
-% Aligned with the idea of memorability, the main theme of all persuasive messages and simple, persuading the target persuadee to engage more physical activity. The main reasons to choose this topics are 1) As a basic daily activity everyone has the need to exercise. 2) People can easily understand the message and relate to themselves. 3) Engaging more exercise is mostly based on audience own willingness instead of any other subjective resources.
-
-We constructed messages based on the idea of social proof~\cite{goldstein2008room}, where the messages emphasized the relationship between the subject and her group of friends. We created two sets of messages that either framed from a positive standpoint or a negative standpoint \cite{tversky1981framing}.
-
-We used the following positive and negatively framed messages in our study.
-\textit{Positive framed persuasive messages:}
-\begin{enumerate}
-	\item In the past week, you spent more time at the gym than did 65\% of your friends
-	\item Congrats! You have reached your goal of exercising three times a week.
-	\item Over the past month, you exercised more than did 90\% of your friends.
-	\item Your exercise activity is in the top 20\% of all your friends.
-	\item Over the past three weeks, you went to the gym more often than 60\% of your friends did.
-\end{enumerate}\par
-\textit{Negative framed persuasive messages:}
-\begin{enumerate}
-	\item	In the past week, you spent less time at the gym than did 65\% of your friends
-	\item  Oh! You did not reach your goal of exercising three times a week.
-	\item	Over the past month, you exercised less than did 90\% of your friends.
-	\item	Your exercise activity is in the bottom 20\% of all your friends.
-	\item	Over the past three weeks, you went to the gym less often than 60\% of your friends did.
-\end{enumerate}
-
-\subsection{Generating Comics}
-In this study, we adapted an open source comic generator~\cite{cmx.io} to generate abstract comic messages. The generator impersonates the style found on 'XKCD'~\cite{munroe2009xkcd} comic. Our focus is not the XKCD style, but the fact that the comic form generated by~~\cite{cmx.io} is abstract. The message we generate includes two characters in a conversation and the scenario is `One day, your friend has something to tell you.'
-
-\begin{figure}[t]
+\begin{figure}[bt]
 	\centering
-	\begin{tabular}{cc}
-		\subfloat[Gestures for positive framed messages]{\label{figur:1a}\includegraphics[width = 0.4\columnwidth]{figures/pos_figures}} &
-		\subfloat[Gesture for negative framed messages ]{\label{figur:1b}\includegraphics[width = 0.4 \columnwidth]{figures/neg_figures}}\\
-	\end{tabular}
-	\caption{Different character gestures to communicate various levels of emotional intensity. The left figure shows gestures used in positive framed messages from neutral to the happiest. The right figure shows gesture used in negative framed messages from neutral to the most frustrated. }
-	\label{figur:figures}
+	\includegraphics[width=\columnwidth]{./figures/abstract_comic.png}
+	\caption{Messages in the abstract comic form}
+	\label{fig:basic three comic panel}
 \end{figure}
 
-% \begin{figure}[t]
-% 	\centering
-% 	\begin{tabular}{ccc}
-% 		\subfloat[Close Friends]{\label{figur:3a}\includegraphics[width = 0.27\columnwidth]{figures/d0}} &
-% 		\subfloat[Friends]{\label{figur:3b}\includegraphics[width = 0.27 \columnwidth]{figures/d1}}      &
-% 		\subfloat[Acquaintance]{\label{figur:3c}\includegraphics[width = 0.27 \columnwidth]{figures/d2}}\\
-% 	\end{tabular}
-% 	\caption{Different distance to communicate various levels of relationship closeness}
-% 	\label{figur:distance}
-% \end{figure}
+The objectives of the persuasive message in all three conditions: persuading participants to donate to a charity from his/her own pocket. Similiar to \textcite{lee2013does}, the money partcipants will use is part of their study compensation, a prospective bonus reward (10\% chance of winning \$5 bonus). We randomly assigned study participants to one of the three conditions; the participants are free to make a decision on the amount of donation, including not donating at all.
 
-To make a fair comparison between plain text representation and the comic form, the content of text bubble is the same in both conditions. We discuss generation of elements of gesture, distance between characters and shading below.
+\paragraph{Study Procedure} Once a participant consents to join the study, we ask them if they are  familiar with the Autism Spectrum Disorder (ASD). Then, each participant watches a short-video produced by the Organization for Autism Research that promotes its fundraising activity "RUN FOR AUTISM". After watching the video, we ask participants to summarize the video using free text and ask them to provide their opinion about the effectiveness of the video. The recruiting message specifically mentions this task of soliciting their opinion on the message effectiveness.
 
-\begin{description}
-	\item[Gesture]: We created the gesture library with two main categories: positive and negative corresponding to how the original message is framed, each with three levels of emotional intensity see Figure~\ref{figur:figures}.
-	\item[Inter-character distance]: For the distance between two characters, we have three levels of variance from close to medium separation to large separation. The three levels of distance represents the relationship between to characters as close friends, friends, and acquaintances.
-	\item[Shading]: For the background shading, we have three-levels , white, grey, and dark grey. Each color represents a level of emotional intensity correspondingly, white as ~\cite{scott1993understanding}.
-\end{description}
+We randomly assign participants to each of the three conditions and and then ask them to read the corresponding persuasive message (text, three-panel comic, three-panel comic with social proof). In the message, we provide the participant with a 10\% chance of winning \$5 additional compensation. We also provide them with the opportunity to donate to the Organization for Autism Research (OAR) which is the charity mentioned in the video they watch as part of the study.
+
+To best demonstrate the persuasiveness of the message itself, we diffused the responsibility of donation amount among all participants. Similar to ~\textcite{lee2013does}, before the participants make their decision, they read "The total amount of money allocated to [the charity] by all the winning participants will be aggregated and donated at the end of the study." Then, we ask the participants to decide the amount of money they are willing to donate on a slider bar with \$0 and \$5 as two extreme ends. The default position of the slider bar is at the \$0 end.
+
+Before leaving the study, the participants we ask the participants to fill a demographic questionnaire about their gender, age and education; the participants have the option of declining to state an answer for each question.
+
+At the end of the study, we randomly chose 10\% of the participants, donated to OAR based on the participants decision, and rewarded each chosen participant the part of the bonus that they wished to keep.
+
+To gather the basic statistics to create social proof, we first ran a pilot study with the first two conditions ($n=60$) and used the donation statistics as part of the social proof message. In the pilot study, 87\% of the participants donated a non-zero amount. 
+
+% i.e.  X \% of participants donated in our study and validate the study procedure, we first ran a pilot study with two conditions, abstract-comic and pure-text before the actual experiment fielded.
 
 
-% \begin{figure}[]
-% 	\centering
-% 	\begin{tabular}{ccc}
-% 		\subfloat[Lowest]{\label{figur:4a}\includegraphics[width = 0.27\columnwidth]{figures/s0}}    &
-% 		\subfloat[Moderate]{\label{figur:4b}\includegraphics[width = 0.27 \columnwidth]{figures/s1}} &
-% 		\subfloat[Intense]{\label{figur:4c}\includegraphics[width = 0.27 \columnwidth]{figures/s2}}\\
-% 	\end{tabular}
-% 	\caption{Different background to communicate various levels of emotional intensity}
-% 	\label{figur:shading}
-% \end{figure}
+\begin{figure}[bt]
+	\centering
+	\includegraphics[width=\columnwidth]{./figures/social_proof.png}
+	\caption{Messages with social proof.}
+	\label{fig:basic three comic social proof}
+\end{figure}
 
-In total, for each message we have a total of $3 \times 3 \times 3 \times 2 =54$ variations in terms of character gesture, inter-character, background shading, and message framing. In this study, we created 270 comic form messages corresponding to 5 plain text messages.
+\paragraph{Organization for Autism Research (OAR)}
+To increase the realism of our study, the donation decision is not hypothetical and participants are rewarded based on their decision and we as study organizers donate to the Organization for Autism Research (OAR). We chose OAR as the charity in our study for three reasons. First, Autism Spectrum Disorder (ASD), is a well-known, serious developmental disorder that impairs the communication and behavior. In other words, ASD provides basic interest for the participants to support the related charitable organization. Second, the Organization for Autism Research is one of the most visible ASD related organizations that helps individuals with autism and provides assistance to parents, families, teachers and caregivers. The goal of OAR is clear and reputable so participants won't question the authenticity of our message's motive. Finally, we wished to avoid a charity associated with a life-threatening condition such as cancer as it may create an experimental confound: we don't know if some donates because their intrinsic desire to help with a life-threatening condition. While ASD can have serious consequences on the well being of those who have it, the public perception is that ASD is not-life threatening. 
 
-Since the prior work~\cite{goldstein2008room,schultz2007constructive} suggests a robust effect of the social proof, instead of using it as part of an experimental condition, we will have two characters in the comic, shown as friends or the experimenter, whose inter-character distance we manipulate. Second, we will incorporate framing in the text bubbles accompanying the comic.
+\paragraph{Persuasive Messages}
 
-\subsection{Study Design}
-To answer our research questions, we designed and after IRB approval, conducted a between-subject online study on Amazon Mechanical Turk.
+The persuasive messages communicate three major objectives, 1) Participants will have 10 \% of chance winning \$ 5 bonus upon the completion of the study. 2) Participants are free to use the money as they please. and 3) Participants can donate this bonus to the Organization for Autism Research (OAR). Therefore, in the text condition, study participants will read the following message,
+\begin{quote}
+  \textit{You have a 10\% chance of winning a five dollar bonus in this study. You are free to use this money as you please. If you win the prize, would you like to donate to support the Organization for Autism Research?}
+\end{quote}
+In the two comic conditions, we created three-panel comic strips to communicate the message. The three-panel comic strip allows us to leverage one of the most fascinating aspect of comics---storytelling~\cite{scott1993understanding}. 
+%Since the first study did not show a convincing effect for framing, participant gesture, character distance and shading, we did not vary those conditions in this experiment. We set the inter-character distance to be medium, light background. 
+Consistent with ``match on action'' technique~\cite{scott1993understanding}, we matched the panels on the gesture of the first character (the message recipient), while retaining a neutral gesture for the second character (who delivers the message). We create the comic strip in a manner similar to the first study on preference.
 
-\textit{Experiment Procedure.} Once participant consented to join our study, they were randomly assigned to two conditions 1) Positive message condition where all persuasive messages are framed in a positive way and 2) Negative condition where all persuasive messages are framed in a negative way. In both conditions, participants will see a total of five persuasive messages in both plain-text representation and comic representation shown side by side. Then, the participant rates which representation of the message is perceived as more persuasive on a 7-item Likert scale.
+% Each of the three panel communicates one major objective in the message. The comic strip is created in the similar fashion as in the first study on preference. As we learned from the first study that appropriate gestures will maximize the persuasiveness of the comics, we then chose the gesture that we believe best suit for the scenario see~\Cref{fig:basic three comic panel}.
 
-\textit{Display Order.} To mitigate any potential bias toward the display order of the plain-text representation and comic representation we randomize the display order. Both plain-text representation and comic-style representation have equal chance to show on the left side.
+In the social-proof-comic condition, we created social-proof by adding one sentence on the last comic panel indicates the percentage of people in our study donated see~\Cref{fig:basic three comic social proof}. The percentage (87\%) corresponds to the number of people who donated a non-zero amount in the pilot study.
 
-\textit{Attention Checker.} To control the data quality, we embedded two attention checkers in the study. The first one appears after the third comparison and the second one shows up after the last comparison. Both attention checkers asked subjects to choose a comic that matches a simple description, e.g. ``Which of the following comics has two characters?''
-
-\textit{Rating Scale Design.} The 7-item Likert scale ranges from -3 (left) to 3 (right) where 0 means neutral. The direction of the scale flips corresponding to the position of the comic and plain text.
-%see the right part of Figure~\ref{fig:change}.
-
-\textit{A Pilot Study.} Before the experiment, we first conducted a pilot study with 10 participants and collect their opinions about the study process and design. Based on the feedback from our pilot test, we iterated our study design. In the final design, we fixed the order of the rating scale. However, since the order is fixed, potential demand characteristics may be introduced by the scale direction~\cite{orne1962social}. To minimize potential bias we added another layer of randomness in our final design. The direction of the scale no longer changes respect to the position of the messages within subjects, but the direction of the scale is randomly assigned between subjects. Also, we replaced the numbers on the scale by text as neutral, slightly persuasive, text/comics is more persuasive and strongly persuasive. Finally, we adjusted the size of the comic and text to make sure both of them have similar readability.
-%
-% The left side of Figure~\ref{fig:change} shows the final design. Another round of pilot study with another 10 participants showed the newer design successfully addressed the problems in the old design and we encountered no new problems.
-
-% \begin{figure}
-%  \centering
-%  \includegraphics[width=0.95\columnwidth]{figures/change}
-%  \caption{Design of the task before and after the pilot study. A. Change the position of the question to makes the question more clear. B. Adjust the position and the size of the text message to improve readability. C. Improve the rating scale to make it easy to interpreted.}
-%  \label{fig:change}
-% \end{figure}
-
+% \begin{figure*}
+%  \subfloat[Messages in the abstract comic form]{%
+%   \includegraphics[width=0.5\textwidth]{./figures/abstract_comic.png}
+%   } \hfill
+%  \subfloat[Messages in the abstract comic form with social proof]{%
+%   \includegraphics[width=0.5\textwidth]{./figures/social_proof.png}
+%  }
+%  \caption{The messages participants received in two abstract-comic conditions}
+%  \label{fig:comic_messages_in_two_conditions}
+% \end{figure*}
 
 \subsubsection{Participants}
-We published our HITs on the Amazon Mechanical Turk titled with ``A short survey about your exercise motivation.'' The price tag for each HIT was \$8/hr, and the workers would get these rewards regardless of their performance. The threshold for participant to join our study was a 95\% Approval Rate. On the HIT page, participants would see a link to our experiment site. Workers who repeat the task will be rejected as we instructed in the task description.
+We published our HITs on Amazon Mechanical Turk titled ``A short survey about communicating autism campaign ads.'' Similar to the Study 1, the compensation was \$8/hr, and the workers would get these rewards regardless of their performance, the threshold for participant to join was a 95\% Approval Rate. On the HIT page, we instructed that repeated responses would be rejected. We told the participants that they would see a link to our experiment site.
