@@ -29,13 +29,7 @@ While those persuasive techniques have made persuasive messages appeal more, hum
 
 In this study, we explored a novel way to synthesis persuasive messages, ''abstract comic'' \footnote{We use ``comic form'' as opposed to the more formal ``graphic form'' to avoid any confusion with other visual representations of data, including charts and diagrams.}. We compared the persuasive power of the same message (e.g. "Would you like to donate to support the Organization for Autism Research?") in two different forms, pure-textual and abstract comic, that aim to encourage individual to contribute to the public goods (e.g. making online charatible donation decisions). 
  
-Two ideas underpin this paper: the comic form and information framing. First, comics is a sophisticated form of art~\textcite{scott1993understanding} that popular across cultures allowing for use of humor and affect in communication. 
-
-
-
-We focus on abstract comic representations (see~\Cref{fig:intro}). By an abstract representation, we mean that the comic de-emphasizes character detail (face, eyes etc.), or details about the locale. As~\textcite{scott1993understanding} points out, using abstract representations for the comic allows the reader to project themselves onto the comic character which may make the persuadee less likely to reject .
-
-Equally importantly, if we wish to algorithmically synthesize comic-style messages, abstract representations allows for a straightforward synthesis and for use in a wide variety of contexts. Moreover, comics are usually in the form of juxtaposed sequences of panels of images or a standalone single image. Beside the graphical representation, textual elements such as speech balloons, captions, and onomatopoeia often communicate dialogue, narration, sound effects, or other information. Existing work shows that comics can effectively convey meanings \textcite{McDermottPB18,cary2004going,scott1993understanding}. Therefore although embellishing a text message using a comic form appears to be a ``Supposedly Irrelevant Factor''~\textcite{Thaler2015}, that ought to make no difference to a decision maker since the comic offers no additional information, 
+Two ideas underpin this paper: the comic form and information framing. First, comics is a sophisticated form of art~\textcite{scott1993understanding} that popular across cultures allowing for use of humor and affect in communication. Effectively communicating emotion and affect is key to nudge people to contribute to the public goods since the main drives for pro-social behaviors or decisions were also intrinsic, e.g. altruism. Moreover, we focus on abstract comic representations (see~\Cref{fig:intro}). By an abstract representation, we mean that the comic de-emphasizes character detail (face, eyes etc.), or details about the locale. As~\textcite{scott1993understanding} points out, using abstract representations for the comic allows the reader to project themselves onto the comic character which may make the persuadee less resistent to receive and digest the message. Equally importantly, if we wish to algorithmically synthesize comic-style messages, abstract representations allows for a straightforward synthesis and for use in a wide variety of contexts. Furthermore, comics are usually in the form of juxtaposed sequences of panels of images or a standalone single image. Beside the graphical representation, textual elements such as speech balloons, captions, and onomatopoeia often communicate dialogue, narration, sound effects, or other information. Existing work shows that comics can effectively convey meanings \textcite{McDermottPB18,cary2004going,scott1993understanding}. Therefore although embellishing a text message using a comic form appears to be a ``Supposedly Irrelevant Factor''~\textcite{Thaler2015}, that ought to make no difference to a decision maker since the comic offers no additional information, becuase 
 
 we believe abstract comic can effective communicate 
 
@@ -46,6 +40,14 @@ As a consequence, we hypothsized,
  \item[RQ-1]: Are statistical facts about individual behavior more persuasive when presented through abstract comic form?
  \item [RQ-2]: What is the effect of social proof in modulating comic persuasiveness?
 \end{description} 
+
+
+In the our study on persuasion ($n=307$), we examined if participants are persuaded to donate to a charity when presented with a three panel comic; we also performed an additional experiment that combined the idea of the social proof with the comic message.
+
+We analyzed the results of both studies using a hierarchical Bayesian framework. Consistent with the observations by~\textcite{Kay2016}, we believe that beyond the role of Bayesian analysis on the issue of replicability, by shifting the question from the binary ``did it have an effect?'' to ``how strong is the effect?'' is important in small-$n$ studies common to HCI.
+
+
+We organize the rest of this paper as follows: we first discuss related work and motivating ideas. Then, we present our sutdy design and result. Then, we discuss the implications of our results, including study limitations, followed by conclusions.
 
 
 %First, work in Behavioral Economics~\cite{tversky1992advances,tversky1981framing} shows that how we frame the text matters and can cause preference reversal. Briefly, individuals show different preferences to statements with identical information due to risk aversion.
@@ -122,7 +124,7 @@ As a consequence, we hypothsized,
 We show through our study that the abstract comic form is more persuasive that the corresponding text message. The effect (0.48) is of medium size and significant. The use of the social proof improves the persuasiveness of the comic, but the effect size is minor (0.12) and not meaningful.
 % \end{description}
 
-Our findings have several design implications. First, we could consider using an abstract comic form to communicate messages for behavior change (e.g. wearable devices). Second, abstract comic form messages can be algorithmically synthesized, by mapping the frame type (positive or negative) to the character gesture, and the statistical information may be obtained from a person's history and from behavioral data of friends who have agreed to share.
+%Our findings have several design implications. First, we could consider using an abstract comic form to communicate messages for behavior change (e.g. wearable devices). Second, abstract comic form messages can be algorithmically synthesized, by mapping the frame type (positive or negative) to the character gesture, and the statistical information may be obtained from a person's history and from behavioral data of friends who have agreed to share.
 
 % The code for Bayesian analysis, comic generator and the raw data will be released under an appropriate open source license.
 
@@ -132,4 +134,3 @@ Our findings have several design implications. First, we could consider using an
 % To summarize: our main contributions lie in analyzing the effect of abstract comics in communicating statistical facts, including the effects of the different comic elements. We developed an algorithmic framework to synthesize the comic panels.
 % We plan to release the code for Bayesian analysis, comic generator and the raw data under an appropriate open source license.
 
-We organize the rest of this paper as follows: we first discuss related work and motivating ideas. Then, we present our sutdy design and result. Then, we discuss the implications of our results, including study limitations, followed by conclusions.
