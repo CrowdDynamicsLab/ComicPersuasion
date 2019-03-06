@@ -57,8 +57,21 @@ In the collective action dilemma, persuading individuals to cooperate or contrib
  % \item[Single Panel]: Our experiment limits our comics to a single panel which hinders one of the most fascinating aspect of comics---storytelling. Comparing to the comic strip, single panel comics find it harder to show the dynamic among characters.
 
  \subsection{Framework for Algorithmically Synthesized Abstract-Comic Persuasive Messages}
+ Our study showed the persuasive power of abstract comics in encouraging people to make pro-social decisions. However, one drawback of using visual stimulus in persuasion is the creation process. Comparing to the pure-textual form, generating abstract comics costs more. In this section, we propose a framework that allows full/semi- automatic generation of abstract persuasive messages. We believe such a tool will lower the barrier for the persuader to take advantage of the abstract comic (as demonstrated in our study) in encouraging individuals to participate in collective actions.
 
- In our study, to generate the comic strip, we created an abstract comic generator with existing packages such as cmx.io and rough.js. In the comic generator, we create several pre-defined character gestures and request only text input from the persuader. We believe the generator we built can be further developed as a framework for algorithmic synthesis: the behavioral data informs the text and character gestures. We could derive the statistics for the social norm from behaviors of friends and the data from a person's own activity for information framing, and map the data to the character gesture, thus reinforcing the framing. While both information framing and the use of social proof improve the comic persuasiveness, our studies indicate the comic form is more important. Thus, we expect the comic form to be useful, even if behavioral data or social norms are unavailable.
+ In our study, we created a comic generator with existing packages such as cmx.io and rough.js to generate the three panel abstract comic strip. With several pre-defined character gestures (see~\Cref{figur:figures}), the generator only requests the text input from the persuader.  
+
+ We believe the generator we built can be further developed as a framework for algorithmic synthesis: the behavioral data informs the text and character gestures. We could derive the statistics for the social norm from behaviors of friends and the data from a person's own activity for information framing, and map the data to the character gesture, thus reinforcing the framing. While both information framing and the use of social proof improve the comic persuasiveness, our studies indicate the comic form is more important. Thus, we expect the comic form to be useful, even if behavioral data or social norms are unavailable.
+
+\begin{figure}[t]
+	\centering
+	\begin{tabular}{cc}
+		\subfloat[Gestures for positive framed messages]{\label{figur:1a}\includegraphics[width = 0.4\columnwidth]{figures/pos_figures}} &
+		\subfloat[Gesture for negative framed messages ]{\label{figur:1b}\includegraphics[width = 0.4 \columnwidth]{figures/neg_figures}}\\
+	\end{tabular}
+	\caption{Different character gestures to communicate various levels of emotional intensity. The left figure shows gestures from neutral to the happiest. The right figure shows gestures from neutral to the most frustrated. }
+	\label{figur:figures}
+\end{figure}
 
 \subsection{Future Research}
 The main implication of our study lies in how to deliver persuasive messages. Given the increasing popularity of wearable devices including smartwatches, one could consider presenting persuasive messages in the form of an abstract comic, where the three-panel comic is shown in sequence, perhaps even in animation. 
