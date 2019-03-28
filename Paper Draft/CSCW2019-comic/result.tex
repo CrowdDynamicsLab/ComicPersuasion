@@ -68,7 +68,7 @@ We draw the scale variables $\sigma_{j}$ of the likelihood StudentT distribution
 \subsection{Analysis}
 \label{sub:Analysis}
 
-We analyzed the data using PyMC3~\cite{Salvatier2016}, a popular framework for Bayesian inference. Computational techniques for Bayesian inference use a stochastic sampling technique called Markov Chain Monte Carlo (MCMC) that samples the posterior distribution $P(\theta | D)$, where we want to estimate the parameters $\theta$ given the observations $D$. In particular, we used the No-U Turn Sampler (NUTS) sampler. The Gelman-Rubin statistic $\hat{R}$ was around 1, indicating that the different sampling chains converged. Furthermore, the effective sample size of all parameters was greater than 10,000.
+We analyzed the data using PyMC3~\cite{Salvatier2016}, a popular framework for Bayesian inference. Computational techniques for Bayesian inference use a stochastic sampling technique called Markov Chain Monte Carlo (MCMC) that samples the posterior distribution $P(\theta | D)$, where we want to estimate the parameters $\theta$ given the observations $D$. In particular, we used the No-U Turn Sampler (NUTS) sampler. 
 
 \begin{figure*}[htb]
 	\includegraphics[width=1\textwidth]{./hari-code/robust_traceplot.pdf}
@@ -76,13 +76,7 @@ We analyzed the data using PyMC3~\cite{Salvatier2016}, a popular framework for B
 	\label{fig:traceplot}
 \end{figure*}
 
-When we superimpose the posterior distribution traces onto the observational data in~\Cref{fig:posteriorprediction} we can see that the $t$-distribution captures the tails of the distribution at \$0 and at \$5.0 well. Notice also that the scale of the distribution for the text condition is smaller than the scales for the two comic conditions, justifying our use of different scale parameters $\sigma_j$ for the three experimental conditions.
 
-\begin{figure*}[htb]
-	\includegraphics[width=1\textwidth]{./hari-code/posterior_predictions.pdf}
-    \caption{Posterior prediction check: traces from the posterior distributions for each condition are super-imposed onto the observational data. The $x$-axis shows the three conditions, while the $y$-axis shows the contribution (each dot corresponds to a response by a single subject). The $t$-distribution captures the heavy tails, and we also see that the scale of the $t$-distribution in the case of the text condition is smaller than the other two cases. }
-	\label{fig:posteriorprediction}
-\end{figure*}
  
 
 Our analysis shows that the abstract comic form has a clear treatment effect over the corresponding text message.~\Cref{fig:robustcontrasts} shows the contrast and the effect size of the contrast for four cases. The first three columns of~\Cref{fig:robustcontrasts} show the contrasts (top row) and the corresponding effect size (bottom row) between a pair of experimental conditions. The fourth column is a comparison between the text condition and the comic condition, by pooling together responses of the two comic conditions.
