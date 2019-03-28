@@ -34,16 +34,22 @@ We used the $t$-distribution to model likelihood thinking that data may be heavy
 
 \begin{figure}[htb]
     \includegraphics[width=0.5\textwidth]{./hari-code/robust_normality.pdf}
-    \caption{The posterior distribution for $\nu$, the normality parameter of the $t$-distribution. When $\nu=\infty$ the $t$-distribution is identical to the Normal distribution. The posterior distribution shows a vertical green bar for $\nu=30$, the traditional cut-off condition for using a Normal distribution. The mode $\nu=53.42$, and the posterior probability distribution implies that only about 7\% of the posterior lies to the left of the green line (i.e. $P(\nu \leq 30) \approx 0.07$), implying that the assuming that the likelihood function to be Normally distributed will give similar inference.}
+    \caption{The posterior distribution for $\nu$, the normality parameter of the $t$-distribution. When $\nu=\infty$ the $t$-distribution is identical to the Normal distribution. The posterior distribution shows a vertical green bar for $\nu=30$, the traditional cut-off condition on degrees of freedom, for using a Normal distribution. The mode $\nu=53.42$, and the posterior probability distribution implies that only about 7\% of the posterior lies to the left of the green line (i.e. $P(\nu \leq 30) \approx 0.07$), implying that the assuming that the likelihood function to be Normally distributed will give similar inference.}
     \label{fig:normality}
 \end{figure}
 
-having discussed prediction checks, convergence and normality, next, we discuss alternatives to the model.
+Having discussed posterior-prediction checks, model convergence and normality, next, we discuss alternatives to the model.
 
 \subsection{Alternative Models}
 \label{sub:Alternative Models}
 
-As a first instance, consider a model similar model, except that the scale parameter of the likelihood function is drawn is \textit{not nested} like our current model, but is simply drawn from an uniform distribution $\sigma_j \sim U(L, H)$, where $L>0$ and where $H$ is a large constant.
+As a first instance, consider a model similar model, except that the scale parameter of the likelihood function is \textit{not nested} like our current model. Instead, we consider the equal variance case, where all the variances are equal (similar to ANOVA), and that the variance is drawn from an uniform distribution. In other words, $\sigma_j = \sigma \sim U(L, H)$, where $L>0$ and where $H$ is a large constant. The main effect of the equal variance assumption is that there is no information sharing among the groups as would be the case when each $\sigma_j$ is drawn from the same distribution, whose parameters have hyper-priors; the latter is our current model.
+
+The main effect of constraining our simplified model is that we are slightly poorer is predicting the observed data since all the variances are guaranteed by the model to be equal, whereas we can see from~\Cref{fig:traceplot} that the mean scale (or equivalently variance) in the text only condition is lower. We are skipping the traceplot and the contrast plots in this case, as they are similar, to~\Cref{fig:traceplot} and~\Cref{fig:robustcontrasts}, except that the effect size for the combined case is slightly lower due to the equal variance assumption. 
+
+Instead, we compare the two models using WAIC (Widely Applicable Information Criterion), a principled way to compare models when they have identical likelihood functions~\parencite{Gelman2014a}. WAIC uses predictive loss to compare two models with different parameters.
+
+
 
 
 
