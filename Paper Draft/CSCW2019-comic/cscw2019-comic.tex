@@ -12,7 +12,7 @@
  urldate=comp,
  url=false,
  maxbibnames=9,
- maxcitenames=1,
+ maxcitenames=2,
  backref=false,
  backend=biber,
  style=ACM-Reference-Format,
@@ -22,6 +22,9 @@ language=american]{biblatex}
 \addbibresource{hari-cscw-comic.bib}
 \renewcommand{\bibfont}{\Small}
 
+\usepackage{url}
+\urlstyle{tt}
+\usepackage{wasysym}
 \usepackage{numprint} %in preamble % nice numbers in tables 
 
 \usepackage{wrapfig}
@@ -155,8 +158,8 @@ This paper examines if persuasive messages when expressed in abstract comic form
 \maketitle
 
 % The default list of authors is too long for headers.
-
-\input{intro.tex}
+\input{cscw2019-intro.tex}
+% \input{intro.tex}
 \input{relatedwork.tex}
 \input{motivatingideas.tex}
 \input{method.tex}
