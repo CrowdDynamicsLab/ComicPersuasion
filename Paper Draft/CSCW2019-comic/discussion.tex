@@ -3,13 +3,47 @@
 \label{sec:Discussion}
 Here we first summarize our findings from the study studies. Then we will propose a framework for algorithmically synthesizing persuasive messages into the abstract comic form, the limitation of the study, and the design implications.
 
-%need to update this part after the revision of RQ in the introduction
-%Our experiment answers RQ-1 affirmatively in that comics are more persuasive than text, with a moderate effect of 0.33. Our answer to RQ-2 is that while the effect of no element is significant, shading and gesture show strong influence, but surprisingly inter-character distance is most effective when distance is large. For RQ-3, we show that negative messages are more influential than positive messages. We have developed a prototypical comic generator (answering RQ-4) that can be used in deploying comic messages.
-
 From asking individuals to act to appealing for charitable donations, text messages have been widely used in simulating behaviors. Scholars from Psychology have shown how variations in the construction of text messages alter decisions. We explored and examined the role of the abstract comic form, a highly expressive, affective medium in communicating persuasive messages. To test the effectiveness of abstract comic persuasive messages, we persuaded individuals to make online charitable donation decisions, one of the most common cases in the collective action dilemma. In the collective action dilemma, due to the non-exclusive and non-rivalrous nature of public goods, persuading individuals to cooperate or contribution is hard and crucial. Also, online charitable donation task not only avoids confounding factors such as habit formation which exists in other persuasion tasks such as exercise and healthy diet but also assures the ecological validity of our study as charity and organizations often solicit donations online. In our study, we compared the persuasive power of text messages, comic messages, and comic messages with social proof in asking charitable donations to public health research (e.g., the Organization for Autism Research).
 
 Our results show that study participants prefer persuasive messages in comic form over plain text in collective action decisions with the real cost. When making the charitable donation between $\$0$ to $\$5$, study participants donated $\$ 0.75$ more if they read the persuasive message in an abstract comic form. The results demonstrate the persuasive power of abstract comic in nudging people to engage in pro-social behavioral decisions. Our findings are consistent with prior research on visual stimulus in persuasion and the benefits of comics in communication. One potential explanation is that study participants were more attracted by the comic strip and projected themselves onto the character. When the projection happens, the persuadee may be able to digest the information better which nudged them to donate more to the  Organization for Autism Research. However, when comparing between the comic condition and comic with the social proof condition, although study participants who read the comic with 'social proof' donated more, our analysis result did not imply meaningful effect size. Although the use of 'social proof' showed a significant impact on other forms of persuasive messages (e.g., pure textual), in the abstract comic persuasive messages, the effect is not substantial. One of the potential explanation is that the design of our comic strip did not signify the idea of 'social proof' other than in the text bubble. It is worth to explore other comic designs, e.g., adding other donators as comic characters, that can make the 'social proof' more salience. Although in our study, the persuasive goal is making charitable donation decisions, we believe our finding enlightens further research in other persuasive scenarios such as long-term behavioral change.
 
+ \subsection{Framework for Algorithmically Synthesized Abstract-Comic Persuasive Messages}
+ 
+Our study showed the persuasive power of abstract comics in encouraging people to make pro-social decisions. However, one drawback of using visual stimulus in persuasion is cost during the creation process. Although comparing to creating other persuasive visual stimulus such as videos or complex graphical illustration, the simplicity of abstract requires less effort, the creation process is not easy. In this section, we propose a framework that allows full/semi- automatic generation of abstract persuasive messages and lists open problems that needs to be solved. We believe such a tool will lower the barrier for the persuader to take advantage of the abstract comic (as demonstrated in our study) in encouraging individuals to act in collective actions.
+
+In our study, we created a comic generator with existing packages such as cmx.io and rough.js to generate the three-panel abstract comic strip. With several pre-defined character gestures (see~\Cref{figur:figures}), the generator only requests the text input from the persuader to create the comic message.  
+
+ We believe the generator we built can be further developed as a framework for algorithmic synthesis: the behavioral data informs the text and character gestures. We could derive the statistics for the social norm from behaviors of friends and the data from a person's own activity for information framing, and map the data to the character gesture, thus reinforcing the framing. While both information framing and the use of social proof improve the comic persuasiveness, our studies indicate the comic form is more important. Thus, we expect the comic form to be useful, even if behavioral data or social norms are unavailable.
+
+\begin{figure}[t]
+	\centering
+	\begin{tabular}{cc}
+		\subfloat[Gestures for positive framed messages]{\label{figur:1a}\includegraphics[width = 0.4\columnwidth]{figures/pos_figures}} &
+		\subfloat[Gesture for negative framed messages ]{\label{figur:1b}\includegraphics[width = 0.4 \columnwidth]{figures/neg_figures}}\\
+	\end{tabular}
+	\caption{Different character gestures to communicate various levels of emotional intensity. The left figure shows gestures from neutral to the happiest. The right figure shows gestures from neutral to the most frustrated. }
+	\label{figur:figures}
+\end{figure}
+
+\subsection{Design Implications}
+Our main design implications are two folded. First, when encouraging individuals to act in collective actions or contribute to public goods, organizations or Governmental agencies ought to consider to use abstract comic in their online messaging strategies to persuade. From our results, using abstract comics can, in particular, persuade people to act in public-goods dilemmas that require single-shot decisions (online charitable donations; taking the flu shot). Additionally, when constructing persuasive comics, it is worth to consider to incorporate social norms.  
+
+Second, our results also enlighten the development of a framework that can algorithmically synthesis textual persuasive messages into abstract comic form and uses data-driven methods to personalize the message to further increase messages' persuasive power. With such a framework, agencies can create their abstract comic persuasive messages easily and incorporate them to alleviate real-world collective action dilemmas. 
+
+\subsection{Limitations \& Future Work}
+\begin{description}
+
+ \item[Distant and Non-exclusive Task:]  Although our study asked participants to make the decision with real cost, the decision domain is limited to only one scenario, online charitable giving. In this task, participant's reward is distant and non-exclusive (e.g., participant's donation decision won't bring any immediate reward and won't exclude the participant from the research outcome). Although both characteristics help us clearly test the persuasive benefits of abstract comics, they also limited our generalizability. Future research is need to understand the pros and cons of using abstract comic messages in persuasive tasks with different reward characteristics. For example, for persuasive goals in the quantified self movement~\cite{Epstein2014,Choe2014} such as exercise and dieting, the reward is distant (e.g., people's health won't be improved immediately after exercise) but exclusive (e.g., healthy life situation mainly benefit the individual him/herself). Moreover, our persuasion task is online charitable donation. Future work is needed to extend our result to offline chartible donation solicitation where text persuasive messages, such as mailer, also often used. 
+  
+ \item[Comic Message Construction:] In our study, we constructed the comic messages in the XKCD comic style. Although the XKCD style is one of the most popular abstract comic styles, there were thousands of ways to create abstract comics.  Comic, as a creative art form, has rich semantics and vocabularies to communicate ideas \cite{scott1993understanding}. Due to the scope of our study, the complexity our comics strip (e.g., number of characters, gestures, and the number of panels) is limited. Future research is needed to explore and understand how other elements in the comic, for example, inter-character distance and character's gesture, affect the persuasiveness of the comic. Furthermore, while simplicity grants us the possibility to automate the generation process, future technology may allow us to generate more complicated persuasive abstract comics.
+  
+\end{description}
+
+%need to update this part after the revision of RQ in the introduction
+%Our experiment answers RQ-1 affirmatively in that comics are more persuasive than text, with a moderate effect of 0.33. Our answer to RQ-2 is that while the effect of no element is significant, shading and gesture show strong influence, but surprisingly inter-character distance is most effective when distance is large. For RQ-3, we show that negative messages are more influential than positive messages. We have developed a prototypical comic generator (answering RQ-4) that can be used in deploying comic messages.
+
+%  \item[No interaction effects in the model]: Our model does not include any interaction effects. This is by design, since in the first study we have 54 experimental conditions making any analysis interaction effects difficult with our small observational study. The raw data suggest an interaction between shading and gesture, but given our limited dataset, there is little point in modeling this interaction. We plan to study interaction effects in future studies by limiting the number of main predictor conditions.
+ %\item[Ecological Validity:] There is a legitimate question if our experiment on Amazon Mechanical Turk has ecological validity.  In real life, many factors affect a person's decision, such as where they are and who they are interacting with. Those factors may interact with the abstract comic's persuasiveness. However, these concerns are also present in other standard studies conducted in the more familiar lab experiments. We plan to conduct field studies in real-world contexts (e.g., shopping at a grocery store) to explore this issue.
 
 % followed Our analysis shows that subjects prefer persuasive messages in comic form over plain text. We found in a persuasive comic, different character's gestures and background shading can influence subjects' perception of the persuasiveness whereas no strong effect was found in inter-character distance. This was consistent with previous research on visual stimulus in persuasion and the benefits of comics in communication.
 %
@@ -44,55 +78,15 @@ Our results show that study participants prefer persuasive messages in comic for
 %  \label{fig:color-experiment-effect}
 % \end{figure}
 
-\subsection{Limitations & Future Work}
-\begin{description}
-%  \item[No interaction effects in the model]: Our model does not include any interaction effects. This is by design, since in the first study we have 54 experimental conditions making any analysis interaction effects difficult with our small observational study. The raw data suggest an interaction between shading and gesture, but given our limited dataset, there is little point in modeling this interaction. We plan to study interaction effects in future studies by limiting the number of main predictor conditions.
- \item[Generalizability:]  Although our study asked participants to make the decision with cost, the decision domain is limited to only one scenario, online charitable giving. We need more studies to evaluate the persuasiveness of abstract comics in other domains.
- 
- offline distant non exlucisve mailers or emails 
- thinking about other dieting exerveise 
- 
- distant vs immideate 
- 
- exclusive rewards distant
- 
- immidate 
- 
- personal quantificiation 
- exclusilve immediate rewards
- 
- dieting -> CHI intro -> future work is needed. 
- 
- immediated reward reminder?
 
- \item[Ecological Validity:] There is a legitimate question if our experiment on Amazon Mechanical Turk has ecological validity.  In real life, many factors affect a person's decision, such as where they are and who they are interacting with. Those factors may interact with the abstract comic's persuasiveness. However, these concerns are also present in other standard studies conducted in the more familiar lab experiments. We plan to conduct field studies in real-world contexts (e.g., shopping at a grocery store) to explore this issue.
-  
- \item[Comic Construction:] Although the XKCD style is one of the most popular abstract comic styles, there were thousands of ways to create abstract comics. Also, the complexity our comics strip (e.g., number of characters, gestures, and the number of panels) is limited. While simplicity grants us the possibility to automate the generation process, future technology may allow us to generate more complicated persuasive abstract comics. Therefore, it is valuable to understand the persuasiveness of other abstract persuasive comics.
-\end{description}
 %  Large scale field study is needed to demonstrate how the abstract comic can persuade in the real-life decision making and what will affect its persuasiveness.
  %Since we ask the subjects (who may lack interest in exercise) to evaluate persuasiveness when the topic is on exercise. Notice that our goal is not to persuade experimental subjects to exercise more, but to evaluate if the comic is a more persuasive form of communication of a statistical fact. We should expect---since we don't know if the subjects are interested in exercise---an increase in the variance in the estimates of the parameters (in particular,  $\sigma_y$). Despite this, the analysis shows a significant affirmative result for RQ-1.
 %  \item[Appropriate gestures]: The authors determined gestures used by the characters in the experiment through trial and error. It may be useful to examine  theoretical frameworks from dance as well as theater art forms as well as examine work on design of sign languages.
 % \end{description}
  % \item[Single Panel]: Our experiment limits our comics to a single panel which hinders one of the most fascinating aspect of comics---storytelling. Comparing to the comic strip, single panel comics find it harder to show the dynamic among characters.
 
- \subsection{Framework for Algorithmically Synthesized Abstract-Comic Persuasive Messages}
- Our study showed the persuasive power of abstract comics in encouraging people to make pro-social decisions. However, one drawback of using visual stimulus in persuasion is the creation process. Comparing to the pure-textual form, generating abstract comics costs more. In this section, we propose a framework that allows full/semi- automatic generation of abstract persuasive messages. We believe such a tool will lower the barrier for the persuader to take advantage of the abstract comic (as demonstrated in our study) in encouraging individuals to participate in collective actions.
+%The main implication of our study lies in how to deliver persuasive messages. 
 
- In our study, we created a comic generator with existing packages such as cmx.io and rough.js to generate the three-panel abstract comic strip. With several pre-defined character gestures (see~\Cref{figur:figures}), the generator only requests the text input from the persuader.  
+%Given the increasing popularity of wearable devices including smartwatches, one could consider presenting persuasive messages in the form of an abstract comic, where the three-panel comic is shown in sequence, perhaps even in animation. 
 
- We believe the generator we built can be further developed as a framework for algorithmic synthesis: the behavioral data informs the text and character gestures. We could derive the statistics for the social norm from behaviors of friends and the data from a person's own activity for information framing, and map the data to the character gesture, thus reinforcing the framing. While both information framing and the use of social proof improve the comic persuasiveness, our studies indicate the comic form is more important. Thus, we expect the comic form to be useful, even if behavioral data or social norms are unavailable.
-
-\begin{figure}[t]
-	\centering
-	\begin{tabular}{cc}
-		\subfloat[Gestures for positive framed messages]{\label{figur:1a}\includegraphics[width = 0.4\columnwidth]{figures/pos_figures}} &
-		\subfloat[Gesture for negative framed messages ]{\label{figur:1b}\includegraphics[width = 0.4 \columnwidth]{figures/neg_figures}}\\
-	\end{tabular}
-	\caption{Different character gestures to communicate various levels of emotional intensity. The left figure shows gestures from neutral to the happiest. The right figure shows gestures from neutral to the most frustrated. }
-	\label{figur:figures}
-\end{figure}
-
-\subsection{Design Implication}
-The main implication of our study lies in how to deliver persuasive messages. %Given the increasing popularity of wearable devices including smartwatches, one could consider presenting persuasive messages in the form of an abstract comic, where the three-panel comic is shown in sequence, perhaps even in animation. 
-
-Also, ~\textcite{scott1993understanding} identifies several fundamental components that influence reader reaction: character gestures, inter-character distance, and shading intensity. For example, the gesture of a character can help the reader to understand the interaction between characters and the emotion of the character. As a common technique, cartoonists often use the gesture to intensify the feeling that they want to communicate to the reader \cite{scott1993understanding}. Therefore, one of the future direction should be understanding how the different comic components moderate comic persuasiveness. If different comic elements car persuades differently, taking advantage of data-driven methods, the abstract-comic can better persuade. To maximize the persuasive power, future research on computational persuasion should leverage the receiver's personal model to construct the persuasive abstract comics with elements best fit to the persuadee.
+%Also, ~\textcite{scott1993understanding} identifies several fundamental components that influence reader reaction: character gestures, inter-character distance, and shading intensity. For example, the gesture of a character can help the reader to understand the interaction between characters and the emotion of the character. As a common technique, cartoonists often use the gesture to intensify the feeling that they want to communicate to the reader \cite{scott1993understanding}. Therefore, one of the future direction should be understanding how the different comic components moderate comic persuasiveness. If different comic elements car persuades differently, taking advantage of data-driven methods, the abstract-comic can better persuade. To maximize the persuasive power, future research on computational persuasion should leverage the receiver's personal model to construct the persuasive abstract comics with elements best fit to the persuadee.
