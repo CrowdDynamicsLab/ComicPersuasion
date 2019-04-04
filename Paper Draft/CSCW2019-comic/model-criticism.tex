@@ -1,5 +1,4 @@
 %!TEX root = cscw2019-comic.tex
-
 \section{Model Criticism}
 \label{sec:Model Criticism}
 
@@ -43,9 +42,9 @@ Having discussed posterior-prediction checks, model convergence, and normality, 
 \subsection{Alternative Models}
 \label{sub:Alternative Models}
 
-As a first instance, consider a model similar model, except that the scale parameter of the likelihood function is \textit{not nested} like our current model. Instead, we consider the equal variance case, where all the variances are equal (similar to ANOVA), and that the variance is drawn from a uniform distribution. In other words, $\sigma_j = \sigma \sim U(L, H)$, where $L>0$ and where $H$ is a large constant. The main effect of the equal variance assumption is that there is no information sharing among the groups as would be the case when each $\sigma_j$ is drawn from the same distribution, whose parameters have hyper-priors; the latter is our current model.
+As a first instance, consider a similar model, except that the scale parameter of the likelihood function is \textit{not nested} like our current model. Instead, we consider the equal variance case, where all the variances are equal (similar to ANOVA), and that the variance is drawn from a uniform distribution. In other words, $\sigma_j = \sigma \sim U(L, H)$, where $L>0$ and where $H$ is a large constant. The main effect of the equal variance assumption is that there is no information sharing among the groups as would be the case when each $\sigma_j$ is drawn from the same distribution, whose parameters have hyper-priors; the latter is our current model.
 
-The main effect of constraining our simplified model is that we are slightly poorer is predicting the observed data since all the variances are guaranteed by the model to be equal, whereas we can see from~\Cref{fig:traceplot} that the mean scale (or equivalently variance) in the text condition is lower. We are skipping the traceplot and the contrast plots in this case, as they are similar, to~\Cref{fig:traceplot} and~\Cref{fig:robustcontrasts}, except that the effect size for the combined case is slightly lower due to the equal variance assumption. 
+The main effect of constraining our simplified model is that we are slightly poorer in predicting the observed data since all the variances are guaranteed by the model to be equal, whereas we can see from~\Cref{fig:traceplot} that the mean scale (or equivalently variance) in the text condition is lower. We are skipping the traceplot and the contrast plots in this case, as they are similar, to~\Cref{fig:traceplot} and~\Cref{fig:robustcontrasts}, except that the effect size for the combined case is slightly lower due to the equal variance assumption. 
 
 Instead, we compare the two models using WAIC (Widely Applicable Information Criterion), a principled way to compare models when they have identical likelihood functions~\parencite{Gelman2014a}. WAIC uses the predictive loss to compare two models with different parameters. First, WAIC computes the average log likelihood of each training data point (over the posterior distribution) less the variance of the log likelihood for the same data point; and then it computes the sum over all data points. That is, WAIC for a model: 
 
@@ -78,8 +77,3 @@ Since the charitable donations are bounded to lie between \$0.0 and \$5.0, might
 Our view of models motivated by~\textcite{McElreath2015} is that they represent an \textit{epistemological} claim, not an \textit{ontological} claim (i.e. a physical assumption about the world). Since our goal is to understand the average tendency to give to charity under the different conditions, and not to make predictions (as might be the case if we were trying to model donation with age as a predictor), the fact that the $t$-distribution is not bounded is less relevant here. 
 
 To summarize, we discussed transparency and utility in small-$n$ studies as motivation for our use of Bayesian modeling. Our posterior predictive check shows that the $t$-distribution models well the heavy tails, and shows that the variances for the comic conditions are different from the text condition. The model shows good convergence with the Gelman-Rubin statistic $\hat{R}$ was virtually identical to 1.0 for all parameters; the effective sample size was greater than 10,000 for all parameters. The modal value of $\nu$, the degrees of freedom parameter was around 53, suggesting that we could also use the Normal likelihood function. Comparison between the hierarchical model with unconstrained variances and the model with equal variances shows that the hierarchical model is better at explaining the observations.
-
-
-
-
-
