@@ -1,4 +1,5 @@
-\documentclass[format=acmsmall, natbib=false, review=false, authordraft=false, anonymous=true, screen=true]{acmart}
+\RequirePackage{rotating}
+\documentclass[format=acmsmall, natbib=false, review=true, authordraft=false, anonymous=true, screen=true]{acmart}
 \settopmatter{printccs=false,printacmref=false}
 
 % using biblatex
@@ -168,4 +169,5 @@ language=american]{biblatex}
 \input{discussion}
 \input{conclusion}
 \printbibliography
+\input{appendix.tex}
 \end{document}

@@ -72,12 +72,12 @@ We draw the scale variables $\sigma_{j}$ of the likelihood StudentT distribution
 
 We analyzed the data using PyMC3~\cite{Salvatier2016}, a popular framework for Bayesian inference. Computational techniques for Bayesian inference use a stochastic sampling technique called Markov Chain Monte Carlo (MCMC) that samples the posterior distribution $P(\theta | D)$, where we want to estimate the parameters $\theta$ given the observations $D$. In particular, we used the No-U Turn Sampler (NUTS) sampler. 
 
-\begin{figure*}[htb]
-	\includegraphics[width=1\textwidth]{./hari-code/robust_traceplot.pdf}
+\begin{sidewaysfigure*}
+    \centering
+	\includegraphics[width=0.8\textwidth]{./hari-code/robust_traceplot.pdf}
     \caption{Traceplot showing the results of the MCMC estimation. Left column shows the posterior distributions for $\beta_0, \beta_{[1-3]}, \mu_{[1-3]}, \nu, \sigma_{[1-3]}$, while the right column shows the corresponding traces. The posterior plots for $\nu$, the parameter corresponding to degrees of freedom has a modal value of $\nu=53$. While the ideal case of $\nu=\infty$ makes the StudentT distribution equivalent to the Normal distribution, in practice $\nu \geq 30$ is used to test for Normality. Thus the response distributions $y_{i \mid j}$ tend towards Normality. Notice that the mean of $\sigma_2$ (green curve, fourth panel, left column), variance of the group response in the case of text, is less than $\sigma_1$ or $\sigma_3$ (variances of the group responses for the comic, comic+social norm cases respectively), justifying our modeling assumptions of unequal variances across groups; the variances for the two comic conditions are nearly identical. The Gelman-Rubin statistic $\hat{R}$ was around 1, indicating that the different sampling chains converged. Furthermore, the effective sample size of all parameters was greater than 10,000. }
 	\label{fig:traceplot}
-\end{figure*}
-
+\end{sidewaysfigure*}
 
  
 
