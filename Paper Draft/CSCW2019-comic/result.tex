@@ -35,18 +35,22 @@ Our experiment has three experimental groups: text, comic and comic with the soc
 This is because ANOVA assumes equal variances within groups, and that the response within each group is drawn from a Normal distribution---in practice, both assumptions may be violated.  It is straightforward in Bayesian Analysis to relax both assumptions: equal variances and Normality. The Normality assumption may be one reason why ANOVA and the $t$-test may be less sensitive to differences than Bayesian analysis~\parencite[][p. 470]{Kruschke2014}.
 
 \begin{figure*}[htb]
-	\includegraphics[width=1\textwidth]{./figures/gen_model.pdf}
-    \caption{Our proposed Hierarchical Bayesian model.}
+    \centering
+	\includegraphics[trim = 4in 0in 0in 4in, clip=true, width=1\textwidth]{./figures/gen_model.pdf}
+    \caption{Our proposed Hierarchical Bayesian model. The bottom of the figure shows the Student-t likelihood function for each experimental condition $j$. The likelihood function has three parameters: $\nu$ (degrees of freedom), $\mu_j$ (the mean for condition $j$), $\sigma_j$ (the scale for condition $j$). The prior distribution for $\nu$ is a shifted experimental distribution, so that $\nu\geq 1$. The prior distribution for the class mean $\mu_j$ is a sum of Normal variables, where $\beta_0$ is the central value across all three conditions, and $\beta_j$ is the deflection corresponding to experimental condition $j$. Notice that $x_j(i) = 1 \iff$ participant $i$ is in condition $j$. We draw the variance of $\beta_j$ from a  Gamma distribution to ensure that $\sigma_{\beta, j} > 0$. We draw the scale parameters $\sigma_j$ from the same Gamma distribution. We draw the mode ($M_\sigma$) and the scale ($S_\sigma$) parameters from a Gamma distribution to ensure $M_\sigma>0$, and $S_\sigma > 0$. We set constants $M_0, S_0, s, r$ to result in uninformative (i.e. conservative) priors.
+    }
 	\label{fig:generative model}
 \end{figure*}
 
 
 
-Now, we discuss our Bayesian formulation (see~\Cref{fig:generative model} for a graphical view of the model). There is one outcome variable $y_{i \mid j}$, the amount of donation to the charity by each participant $i$, under experimental condition $j$: text, comic, and comic with social proof. Our Bayesian model:
+Now, we discuss our Bayesian formulation (see~\Cref{fig:generative model} for a graphical view of the model). There is one outcome variable $y_{i \mid j}$, the amount of donation to the charity by each participant $i$, under experimental condition $j$: text, comic, and comic with social proof. 
+
+To model the problem, we first need to define a likelihood function, to describe how the data is generated. We use a Student-t distribution to characterize the donations, since~\Cref{fig:contributions across conditions} shows significant contributions for amount \$0 and \$5. A Student-t distribution is heavy-tailed, in the sense that the Student-t distribution doesn't fall off as quickly as does a Normal distribution. If we choose a Normal distribution, then we would find it harder to explain contributions at \$0 and at \$5, without increasing the variance parameter. The Student-t distribution has three parameters: the degrees of freedom ($\nu$), the experimental condition dependent mean ($\mu_j$) and scale ($\sigma_j$). Each of these parameters are random variables, and we need to define likelihood functions of each of them. Our Bayesian model (also see~\Cref{fig:generative model} ):
 
 
 \begin{align}
-    y_{i \mid j} \sim &  \mathrm{StudentT}(\nu, \mu_j, \sigma_j), \label{eq:bayesian formulation}\\
+    y_{i \mid j} \sim &  \mathrm{Student-t}(\nu, \mu_j, \sigma_j), \label{eq:bayesian formulation}\\
     \nu \sim & 1 + \exp(\lambda), \\
     \mu_j \sim & \beta_0 + \sum_j \beta_j x_j(i), \label{eq:mean response}\\
     \sigma_j \sim & \Gamma(M_{\sigma}, SC_{\sigma}),\\
@@ -57,11 +61,30 @@ Now, we discuss our Bayesian formulation (see~\Cref{fig:generative model} for a 
     \sigma_{\beta, j} \sim & \Gamma(s,r).
 \end{align}
  
-\Cref{eq:bayesian formulation} says that the response $y_{i \mid j}$ of each group $j$ is modeled as a $\mathrm{StudentT}$ distribution with mode $\mu_j$,  scale $\sigma_j$ and with $\nu$ degrees of freedom; notice that this is a \textit{drawing distribution}, not the $t$-test. The $\mathrm{StudentT}$ allows us to model a non-Normal outcome with a heavy tail; assuming $y_{i \mid j}$ to be Normally distributed is equivalent to setting $\nu=\infty$. The degrees of freedom $\nu$ is drawn from a shifted exponential distribution, to ensure $\nu \geq 1$; the mode $\mu_j$ corresponding to each group is drawn from a Normal distribution with $\mu_j = \beta_0 + \sum_j \beta_j x_j(i)$, where the group indicator variable $x_j(i)=1 \iff \text{subject } i \text{ belongs to group } j$. The scale $\sigma_j$ of the normal distribution is drawn from a Gamma distribution $\Gamma(M_{\sigma}, SC_{\sigma})$, with mode $M_{\sigma}$ and scale $SC_{\sigma}$. The mode $M_{\sigma}$ and scale $SC_{\sigma}$ are each drawn from two independent Gamma distributions $\Gamma(s,r)$ with shape parameter $s$ and rate parameter $r$. The overall group response $\beta_0$ is modeled as a Normal distribution with mean $\mu_0$ and variance $\sigma_0$. For each of the $\beta_j$ for each group $j$ in~\Cref{eq:mean response}, $\beta_j$ is Normally distributed with mean $\mu=0$ and $\sigma_{\beta, j}$ drawn from a Gamma distribution $\Gamma(s,r)$ with shape parameter $s$ and rate parameter $r$. The random variables $\beta_j$ are centered around $\mu=0$ so that the group responses are modeled as deflections around the overall mean $\beta_0$. 
+\Cref{eq:bayesian formulation} says that the response $y_{i \mid j}$ of each group $j$ is modeled as a $\mathrm{Student-t}$ distribution with mode $\mu_j$,  scale $\sigma_j$ and with $\nu$ degrees of freedom; notice that this is a \textit{drawing distribution}, not the $t$-test. The Student-t allows us to model a non-Normal outcome with a heavy tail; assuming $y_{i \mid j}$ to be Normally distributed is equivalent to setting $\nu=\infty$. Now we explain the the main parameters of the model.
 
-~\Cref{fig:generative model} indicates that we draw all the variances $\sigma_{\beta, j}$ from a Gamma $\Gamma(s,r)$ distribution, where $s$ refers to the shape parameter and $r$ refers to the rate parameter. We set the variables $s,r$ to allows a wide range of values for $\sigma_{\beta, j}$. Notice that we draw the variances $\sigma_{\beta, j}$ of each group $j$ independently from a \textit{common} Gamma distribution, implying that the variances (equivalently, the extent of deflections from the mean) for each predictor $\beta_j$ can be different. The main advantage of using a Gamma distribution is that we can specify a non-zero mode, important in controlling shrinkage in hierarchical models. 
 
-We draw the scale variables $\sigma_{j}$ of the likelihood StudentT distribution from a common Gamma distribution, whose rate and shape parameters are also drawn from Gamma distributions. The advantage of this hierarchical approach is that the values of each element of $\sigma_j$ inform the other elements. The ``information sharing'' among variables common to hierarchical Bayesian models and is an important reason why Bayesian models work so well with small datasets\footnote{The sharing of information causes the scale of each group $\sigma_{j}$ to move towards the group variance, a phenomenon known as ``shrinkage.'' }. Finally, the constants $M_0, S_0, s, r$ are set so that the priors are generous but weakly informative so that despite exploring all possible values, we ensure rapid MCMC convergence.
+\begin{description}
+    \item[Degrees of Freedom:] We draw the degrees of freedom $\nu$ from a shifted exponential distribution, to ensure $\nu \geq 1$
+    \item[Modal contribution $\mu_j$ in each condition $j$:] The mode $\mu_j$ corresponding to each group is drawn from a sum of Normally distributed random variables with $\mu_j = \beta_0 + \sum_j \beta_j x_j(i)$, where $\beta_0$ corresponds to the overall mean contribution across experimental conditions, and where the group indicator variable $x_j(i)=1 \iff \text{subject } i \text{ belongs to group } j$. We model the overall group response $\beta_0$ as a Normal distribution with mean $\mu_0$ and variance $\sigma_0$. For each of the $\beta_j$ for each group $j$ in~\Cref{eq:mean response}, $\beta_j$ is Normally distributed with mean $\mu=0$ and $\sigma_{\beta, j}$ drawn from a Gamma distribution $\Gamma(s,r)$ with shape parameter $s$ and rate parameter $r$, ensuring $\sigma_{\beta, j} > 0$. 
+    % We set the variables $s,r$ to allows a wide range of values for $\sigma_{\beta, j}$.  
+    The random variables $\beta_j$ are centered around $\mu=0$ so that the group responses are modeled as deflections around the overall mean $\beta_0$. Notice that we draw the variances $\sigma_{\beta, j}$ of each group $j$ independently from a Gamma distribution with same parameters ($s,r$), implying that the variances (equivalently, the extent of deflections from the mean) for each predictor $\beta_j$ can be different. The main advantage of using a Gamma distribution is that we can specify a non-zero mode, important in controlling shrinkage in hierarchical models. 
+    \item[Scale $\sigma_j$ of each condition $j$:]  The scale $\sigma_j$ of the likelihood function is drawn from a Gamma distribution $\Gamma(M_{\sigma}, SC_{\sigma})$, with mode $M_{\sigma}$ and scale $SC_{\sigma}$; this prior on $\sigma_j$ ensures that $\sigma_j > 0$. The mode $M_{\sigma}$ and scale $SC_{\sigma}$ are each drawn from two independent Gamma distributions $\Gamma(s,r)$ with shape parameter $s$ and rate parameter $r$. The advantage of this hierarchical approach is that the values of each element of $\sigma_j$ inform the other elements. The ``information sharing'' among variables common to hierarchical Bayesian models and is an important reason why Bayesian models work so well with small datasets\footnote{The sharing of information causes the scale of each group $\sigma_{j}$ to move towards the group variance, a phenomenon known as ``shrinkage.'' }.
+    \item[Constants:] The constants $M_0, S_0, s, r$ are set so that the priors are generous but weakly informative so that despite exploring all possible values, we ensure rapid MCMC convergence.
+\end{description}
+
+
+Having introduced our model, now we examine the results of the data analysis.
+
+
+
+% ~\Cref{fig:generative model} indicates that we draw all the variances $\sigma_{\beta, j}$ from a Gamma $\Gamma(s,r)$ distribution, where $s$ refers to the shape parameter and $r$ refers to the rate parameter. 
+
+
+
+% We draw the scale variables $\sigma_{j}$ of the likelihood Student-t distribution from a common Gamma distribution, whose rate and shape parameters are also drawn from Gamma distributions. The advantage of this hierarchical approach is that the values of each element of $\sigma_j$ inform the other elements. The ``information sharing'' among variables common to hierarchical Bayesian models and is an important reason why Bayesian models work so well with small datasets\footnote{The sharing of information causes the scale of each group $\sigma_{j}$ to move towards the group variance, a phenomenon known as ``shrinkage.'' }. 
+
+
 
 
 
@@ -75,7 +98,7 @@ We analyzed the data using PyMC3~\cite{Salvatier2016}, a popular framework for B
 \begin{sidewaysfigure*}
     \centering
 	\includegraphics[width=0.8\textwidth]{./hari-code/robust_traceplot.pdf}
-    \caption{Traceplot showing the results of the MCMC estimation. Left column shows the posterior distributions for $\beta_0, \beta_{[1-3]}, \mu_{[1-3]}, \nu, \sigma_{[1-3]}$, while the right column shows the corresponding traces. The posterior plots for $\nu$, the parameter corresponding to degrees of freedom has a modal value of $\nu=53$. While the ideal case of $\nu=\infty$ makes the StudentT distribution equivalent to the Normal distribution, in practice $\nu \geq 30$ is used to test for Normality. Thus the response distributions $y_{i \mid j}$ tend towards Normality. Notice that the mean of $\sigma_2$ (green curve, fourth panel, left column), variance of the group response in the case of text, is less than $\sigma_1$ or $\sigma_3$ (variances of the group responses for the comic, comic+social norm cases respectively), justifying our modeling assumptions of unequal variances across groups; the variances for the two comic conditions are nearly identical. The Gelman-Rubin statistic $\hat{R}$ was around 1, indicating that the different sampling chains converged. Furthermore, the effective sample size of all parameters was greater than 10,000. }
+    \caption{Traceplot showing the results of the MCMC estimation. Left column shows the posterior distributions for $\beta_0, \beta_{[1-3]}, \mu_{[1-3]}, \nu, \sigma_{[1-3]}$, while the right column shows the corresponding traces. The posterior plots for $\nu$, the parameter corresponding to degrees of freedom has a modal value of $\nu=53$. While the ideal case of $\nu=\infty$ makes the Student-t distribution equivalent to the Normal distribution, in practice $\nu \geq 30$ is used to test for Normality. Thus the response distributions $y_{i \mid j}$ tend towards Normality. Notice that the mean of $\sigma_2$ (green curve, fourth panel, left column), variance of the group response in the case of text, is less than $\sigma_1$ or $\sigma_3$ (variances of the group responses for the comic, comic+social norm cases respectively), justifying our modeling assumptions of unequal variances across groups; the variances for the two comic conditions are nearly identical. The Gelman-Rubin statistic $\hat{R}$ was around 1, indicating that the different sampling chains converged. Furthermore, the effective sample size of all parameters was greater than 10,000. }
 	\label{fig:traceplot}
 \end{sidewaysfigure*}
 
