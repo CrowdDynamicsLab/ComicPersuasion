@@ -50,15 +50,15 @@ To model the problem, we first need to define a likelihood function, to describe
 
 
 \begin{align}
-    y_{i \mid j} \sim &  \mathrm{Student-t}(\nu, \mu_j, \sigma_j), \label{eq:bayesian formulation}\\
-    \nu \sim & 1 + \exp(\lambda), \\
-    \mu_j \sim & \beta_0 + \sum_j \beta_j x_j(i), \label{eq:mean response}\\
-    \sigma_j \sim & \Gamma(M_{\sigma}, SC_{\sigma}),\\
-    M_{\sigma} \sim & \Gamma(s,r), \\
-    SC_{\sigma} \sim & \Gamma(s,r), \\
-    \beta_0 \sim & N(M_0, SD_0), \\
-    \beta_j \sim & N (0, \sigma_{\beta, j}), \\
-    \sigma_{\beta, j} \sim & \Gamma(s,r).
+    y_{i \mid j} \sim &  \mathrm{Student-t}(\nu, \mu_j, \sigma_j),  & \text{likelihood function to model donation}\label{eq:bayesian formulation}\\
+    \nu \sim & 1 + \exp(\lambda), & \text{degrees of freedom}\\
+    \mu_j \sim & \beta_0 + \sum_j \beta_j x_j(i), & \text{modal contribution in each condition } j\label{eq:mean response}\\
+    \sigma_j \sim & \Gamma(M_{\sigma}, SC_{\sigma}), & \text{scale parameter for condition } j\\
+    M_{\sigma} \sim & \Gamma(s,r), & \\
+    SC_{\sigma} \sim & \Gamma(s,r), &  \\
+    \beta_0 \sim & N(M_0, SD_0), & \text{average contribution across conditions}\\
+    \beta_j \sim & N (0, \sigma_{\beta, j}), & \text{deflection from average for condition } j\\
+    \sigma_{\beta, j} \sim & \Gamma(s,r) & .
 \end{align}
  
 \Cref{eq:bayesian formulation} says that the response $y_{i \mid j}$ of each group $j$ is modeled as a $\mathrm{Student-t}$ distribution with mode $\mu_j$,  scale $\sigma_j$ and with $\nu$ degrees of freedom; notice that this is a \textit{drawing distribution}, not the $t$-test. The Student-t allows us to model a non-Normal outcome with a heavy tail; assuming $y_{i \mid j}$ to be Normally distributed is equivalent to setting $\nu=\infty$. Now we explain the the main parameters of the model.
