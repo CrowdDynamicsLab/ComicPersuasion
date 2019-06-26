@@ -50,14 +50,14 @@ Now, we discuss our Bayesian formulation (see~\Cref{fig:generative model} for a 
 
 
 \begin{align}
-    y_{i \mid j} \sim &  \mathrm{Student-t}(\nu, \mu_j, \sigma_j),  & \text{likelihood function to model donation}\label{eq:bayesian formulation}\\
-    \nu \sim & 1 + \exp(\lambda), & \text{degrees of freedom}\\
-    \mu_j \sim & \beta_0 + \sum_j \beta_j x_j(i), & \text{modal contribution in each condition } j\label{eq:mean response}\\
-    \sigma_j \sim & \Gamma(M_{\sigma}, SC_{\sigma}), & \text{scale parameter for condition } j\\
+    y_{i \mid j} \sim &  \mathrm{Student-t}(\nu, \mu_j, \sigma_j),  & \hs{\text{likelihood function to model donation}}\label{eq:bayesian formulation}\\
+    \nu \sim & 1 + \exp(\lambda), & \hs{\text{degrees of freedom}}\\
+    \mu_j \sim & \beta_0 + \sum_j \beta_j x_j(i), & \hs{\text{modal contribution in each condition } j}\label{eq:mean response}\\
+    \sigma_j \sim & \Gamma(M_{\sigma}, SC_{\sigma}), & \hs{\text{scale parameter for condition } j}\\
     M_{\sigma} \sim & \Gamma(s,r), & \\
     SC_{\sigma} \sim & \Gamma(s,r), &  \\
-    \beta_0 \sim & N(M_0, SD_0), & \text{average contribution across conditions}\\
-    \beta_j \sim & N (0, \sigma_{\beta, j}), & \text{deflection from average for condition } j\\
+    \beta_0 \sim & N(M_0, SD_0), & \hs{\text{average contribution across conditions}}\\
+    \beta_j \sim & N (0, \sigma_{\beta, j}), & \hs{\text{deflection from average contribution for condition } j}\\
     \sigma_{\beta, j} \sim & \Gamma(s,r) & .
 \end{align}
  

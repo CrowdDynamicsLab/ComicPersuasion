@@ -3,7 +3,9 @@
 % \section{Model Criticism}
 \label{sec:Model Criticism}
 
-In this section, we examine alternatives to the proposed model, a straightforward task in Bayesian analysis. We begin with a short section explaining our choice to use Bayesian analysis. Then in~\ref{sub:Posterior Checks, Convergence and Normality}, we examine how well the proposed models explain the observed data, including model convergence.
+In this section, we  begin with a short section explaining our choice to use Bayesian analysis. Then in~\ref{sub:Posterior Checks, Convergence and Normality}, we examine model convergence and Normality.
+
+% how well the proposed models explain the observed data, including model convergence.
 
 \subsection{Why Bayesian?}
 \label{sub:Why Bayesian?}
@@ -14,22 +16,14 @@ In a recent paper,~\textcite{Kay2016}, make a persuasive argument that Bayesian 
 \end{description}
 
 
-\subsection{Posterior Checks, Convergence and Normality}
+\subsection{Model Convergence and Normality}
 \label{sub:Posterior Checks, Convergence and Normality}
 
-In this section, we examine the model fits by examining how well the model makes predicts the observed data, model convergence and our assumptions about Normality.
-
-\begin{figure*}[htb]
-    \includegraphics[width=1\textwidth]{./hari-code/posterior_predictions.pdf}
-    \caption{Posterior prediction check: traces from the posterior distributions for each condition are super-imposed onto the observational data. The $x$-axis shows the three conditions, while the $y$-axis shows the contribution (each dot corresponds to a response by a single subject). The $t$-distribution captures the heavy tails, and we also see that the scale of the $t$-distribution in the case of the text condition is smaller than the other two cases. }
-    \label{fig:posteriorprediction}
-\end{figure*}
-
-One of the advantages of a Bayesian model is that one can use the model to make predictions. Since the probabilistic model is generative, we can simply draw observations from the model. When we superimpose the posterior distribution traces onto the observational data in~\Cref{fig:posteriorprediction} we can observe three things. First, notice that the mean contribution for the `text' condition is less than the `comic' or the `comic+social norm' conditions, which seems reasonable given the increased number of \$0.0 contributions for the `text' condition in comparison to the other two cases. Second, the use of the heavy-tailed $t$-distribution captures well the tails of the distribution at \$0 and at \$5.0. Third, the scale of the distribution for the text condition is smaller than the scales for the two comic conditions, justifying our use of different scale parameters $\sigma_j$ for the three experimental conditions.
+\hs{In this section, we examine model convergence and our assumptions about Normality.}
 
 The model shows good convergence, as evidenced by the traceplot in~\Cref{fig:traceplot}. The Gelman-Rubin statistic $\hat{R}$ was around 1, indicating that the different sampling chains converged. Furthermore, the effective sample size of all parameters was greater than 10,000.
 
-We used the $t$-distribution to model likelihood thinking that data may be heavy-tailed implying that a heavy-tailed distribution may be a better likelihood function than a  Normal distribution. Let us examine the posterior distribution for $\nu$, the degrees of freedom of the $t$-distribution. As a reminder, the $t$-distribution is equivalent to the Normal distribution when $\nu=\infty$. We can see that while the 95\% HPD lies between [17.37, 147.19], less than 7\% of the posterior lies below $\nu=30$, the traditional rule-of-thumb in non-Bayesian statistics for use of the Normal distribution. \textcolor{red}{Since there is only a 7\% chance that the degrees of freedom $\nu \leq 30$, instead of using the Student-t likelihood function, instead, we could use a Normally distributed likelihood function with unequal variance.}
+\hs{We used the $t$-distribution to model likelihood motivated by the high contributions at \$0 and \$5 in the data (c.f.~\Cref{fig:contributions across conditions}}) implying that a heavy-tailed distribution may be a better likelihood function than a  Normal distribution. Let us examine the posterior distribution for $\nu$, the degrees of freedom of the $t$-distribution. As a reminder, the $t$-distribution is equivalent to the Normal distribution when $\nu=\infty$. We can see that while the 95\% HPD lies between [17.37, 147.19], less than 7\% of the posterior lies below $\nu=30$, the traditional rule-of-thumb in non-Bayesian statistics for use of the Normal distribution. \textcolor{red}{Since there is only a 7\% chance that the degrees of freedom $\nu \leq 30$, instead of using the Student-t likelihood function, instead, we could use a Normally distributed likelihood function with unequal variance.}
 
 
 \begin{figure}[htb]
@@ -38,7 +32,7 @@ We used the $t$-distribution to model likelihood thinking that data may be heavy
     \label{fig:normality}
 \end{figure}
 
-Having discussed posterior-prediction checks, model convergence, and normality, next, we discuss alternatives to the model.
+% Having discussed posterior-prediction checks, model convergence, and normality, next, we discuss alternatives to the model.
 
 % \subsection{Alternative Models}
 % \label{sub:Alternative Models}
@@ -77,6 +71,6 @@ Having discussed posterior-prediction checks, model convergence, and normality, 
 
 % Our view of models motivated by~\textcite{McElreath2015} is that they represent an \textit{epistemological} claim, not an \textit{ontological} claim (i.e. a physical assumption about the world). Since our goal is to understand the average tendency to give to charity under the different conditions, and not to make predictions (as might be the case if we were trying to model donation with age as a predictor), the fact that the $t$-distribution is not bounded is less relevant here. 
 
-To summarize, we discussed transparency and utility in small-$n$ studies as motivation for our use of Bayesian modeling. Our posterior predictive check shows that the $t$-distribution models well the heavy tails, and shows that the variances for the comic conditions are different from the text condition. The model shows good convergence with the Gelman-Rubin statistic $\hat{R}$ was virtually identical to 1.0 for all parameters; the effective sample size was greater than 10,000 for all parameters. The modal value of $\nu$, the degrees of freedom parameter was around 53, suggesting that we could also use the Normal likelihood function. 
+To summarize, we discussed transparency and utility in small-$n$ studies as motivation for our use of Bayesian modeling. The model shows good convergence with the Gelman-Rubin statistic $\hat{R}$ was virtually identical to 1.0 for all parameters; the effective sample size was greater than 10,000 for all parameters. The modal value of $\nu$, the degrees of freedom parameter was around 53, suggesting that we could also use the Normal likelihood function. 
 
-\textcolor{red}{Further, we examine alternative model formulations. The comparison between the hierarchical model with unconstrained variances and the model with equal variances shows that the hierarchical model is better at explaining the observations. Please see \ref{sub:Alternative Models} in Appendix for detailed discussion.}
+\textcolor{red}{Our posterior predictive check shows that the $t$-distribution models well the heavy tails, and shows that the variances for the comic conditions are different from the text condition. Furthermore, the comparison between the hierarchical model with unconstrained variances and the model with equal variances shows that the hierarchical model is better at explaining the observations. We discuss posterior prediction checks (\Cref{sub:Posterior Predictive Check}) and alternative models (\Cref{sub:Alternative Models}) in detail in the Appendix. }

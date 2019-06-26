@@ -1,6 +1,24 @@
 %!TEX root = cscw2019-comic.tex
 \section{Appendix}
+\label{sec:Appendix}
 % \section{Model Criticism}
+\subsection{Posterior Predictive Check}
+\label{sub:Posterior Predictive Check}
+
+In this section, we examine how well our model makes predicts the observed data.
+
+\begin{figure*}[htb]
+    \includegraphics[width=1\textwidth]{./hari-code/posterior_predictions.pdf}
+    \caption{Posterior prediction check: traces from the posterior distributions for each condition are super-imposed onto the observational data. The $x$-axis shows the three conditions, while the $y$-axis shows the contribution (each dot corresponds to a response by a single subject). The $t$-distribution captures the heavy tails, and we also see that the scale of the $t$-distribution in the case of the text condition is smaller than the other two cases. }
+    \label{fig:posteriorprediction}
+\end{figure*}
+
+One of the advantages of a Bayesian model is that one can use the model to make predictions. Since the probabilistic model is generative, we can simply draw observations from the model. When we superimpose the posterior distribution traces onto the observational data in~\Cref{fig:posteriorprediction} we can observe three things. First, notice that the mean contribution for the `text' condition is less than the `comic' or the `comic+social norm' conditions, which seems reasonable given the increased number of \$0.0 contributions for the `text' condition in comparison to the other two cases. Second, the use of the heavy-tailed $t$-distribution captures well the tails of the distribution at \$0 and at \$5.0. Third, the scale of the distribution for the text condition is smaller than the scales for the two comic conditions, justifying our use of different scale parameters $\sigma_j$ for the three experimental conditions.
+
+
+Having discussed posterior-prediction checks, next, we discuss alternatives to the model.
+
+
 \subsection{Alternative Models}
 \label{sub:Alternative Models}
 
