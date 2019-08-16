@@ -19,11 +19,11 @@ In a recent paper,~\textcite{Kay2016}, make a persuasive argument that Bayesian 
 \subsection{Model Convergence and Normality}
 \label{sub:Posterior Checks, Convergence and Normality}
 
-\hs{In this section, we examine model convergence and our assumptions about Normality.}
+In this section, we examine model convergence and our assumptions about Normality.
 
 The model shows good convergence, as evidenced by the traceplot in~\Cref{fig:traceplot}. The Gelman-Rubin statistic $\hat{R}$ was around 1, indicating that the different sampling chains converged. Furthermore, the effective sample size of all parameters was greater than 10,000.
 
-\hs{We used the $t$-distribution to model likelihood motivated by the high contributions at \$0 and \$5 in the data (c.f.~\Cref{fig:contributions across conditions}}) implying that a heavy-tailed distribution may be a better likelihood function than a  Normal distribution. Let us examine the posterior distribution for $\nu$, the degrees of freedom of the $t$-distribution. As a reminder, the $t$-distribution is equivalent to the Normal distribution when $\nu=\infty$. We can see that while the 95\% HPD lies between [17.37, 147.19], less than 7\% of the posterior lies below $\nu=30$, the traditional rule-of-thumb in non-Bayesian statistics for use of the Normal distribution. Since there is only a 7\% chance that the degrees of freedom $\nu \leq 30$, instead of using the Student-t likelihood function, we could use a Normally distributed likelihood function with unequal variance.
+We used the $t$-distribution to model likelihood motivated by the high contributions at \$0 and \$5 in the data (c.f.~\Cref{fig:contributions across conditions}) implying that a heavy-tailed distribution may be a better likelihood function than a  Normal distribution. Let us examine the posterior distribution for $\nu$, the degrees of freedom of the $t$-distribution. As a reminder, the $t$-distribution is equivalent to the Normal distribution when $\nu=\infty$. We can see that while the 95\% HPD lies between [17.37, 147.19], less than 7\% of the posterior lies below $\nu=30$, the traditional rule-of-thumb in non-Bayesian statistics for use of the Normal distribution. Since there is only a 7\% chance that the degrees of freedom $\nu \leq 30$, instead of using the Student-t likelihood function, we could use a Normally distributed likelihood function with unequal variance.
 
 
 \begin{figure}[htb]
