@@ -1,6 +1,6 @@
 \RequirePackage{rotating}
 \documentclass[format=acmsmall, natbib=false, review=false, authordraft=false, anonymous=false, screen=true]{acmart}
-\settopmatter{printccs=false,printacmref=false}
+
 
 % using biblatex
 \let\citename\relax
@@ -58,8 +58,12 @@ language=american]{biblatex}
 % \copyrightyear{2009}
 %\acmArticleSeq{9}
 
-% Copyright
 \setcopyright{acmcopyright}
+\acmJournal{PACMHCI}
+\acmYear{2019} \acmVolume{3} \acmNumber{CSCW} \acmArticle{75} \acmMonth{11} \acmPrice{15.00}\acmDOI{10.1145/3359177}
+
+% Copyright
+% \setcopyright{acmcopyright}
 % \setcopyright{acmlicensed}
 %\setcopyright{rightsretained}
 %\setcopyright{usgov}
@@ -70,15 +74,13 @@ language=american]{biblatex}
 
 % DOI
 % \acmDOI{0000001.0000001}
-\acmDOI{}
+%\acmDOI{}
 
 % % Paper history
-\acmConference[]{Submitted to CSCW}{2019}{Austin, TX.}
-% \received{February 2007}
-% \received[revised]{March 2009}
-% \received[accepted]{June 2009}
-
-
+%\acmConference[]{Submitted to CSCW}{2019}{Austin, TX.}
+\received{April 2019}
+\received[revised]{Jun 2019}
+\received[accepted]{Aug 2019}
 % Document starts
 \begin{document}
 % Title portion. Note the short title for running heads
@@ -140,47 +142,38 @@ language=american]{biblatex}
 % http://dl.acm.org/ccs.cfm
 % Please copy and paste the code instead of the example below.
 %
-% \begin{CCSXML}
-% <ccs2012>
-%  <concept>
-%   <concept_id>10010520.10010553.10010562</concept_id>
-%   <concept_desc>Computer systems organization~Embedded systems</concept_desc>
-%   <concept_significance>500</concept_significance>
-%  </concept>
-%  <concept>
-%   <concept_id>10010520.10010575.10010755</concept_id>
-%   <concept_desc>Computer systems organization~Redundancy</concept_desc>
-%   <concept_significance>300</concept_significance>
-%  </concept>
-%  <concept>
-%   <concept_id>10010520.10010553.10010554</concept_id>
-%   <concept_desc>Computer systems organization~Robotics</concept_desc>
-%   <concept_significance>100</concept_significance>
-%  </concept>
-%  <concept>
-%   <concept_id>10003033.10003083.10003095</concept_id>
-%   <concept_desc>Networks~Network reliability</concept_desc>
-%   <concept_significance>100</concept_significance>
-%  </concept>
-% </ccs2012>
-% \end{CCSXML}
-%
-% \ccsdesc[500]{Computer systems organization~Embedded systems}
-% \ccsdesc[300]{Computer systems organization~Redundancy}
-% \ccsdesc{Computer systems organization~Robotics}
-% \ccsdesc[100]{Networks~Network reliability}
+
+\begin{CCSXML}
+<ccs2012>
+<concept>
+<concept_id>10003120.10003121.10011748</concept_id>
+<concept_desc>Human-centered computing~Empirical studies in HCI</concept_desc>
+<concept_significance>500</concept_significance>
+</concept>
+<concept>
+<concept_id>10003120.10003130.10011762</concept_id>
+<concept_desc>Human-centered computing~Empirical studies in collaborative and social computing</concept_desc>
+<concept_significance>300</concept_significance>
+</concept>
+</ccs2012>
+\end{CCSXML}
+
+\ccsdesc[500]{Human-centered computing~Empirical studies in HCI}
+\ccsdesc[300]{Human-centered computing~Empirical studies in collaborative and social computing}
 
 %
 % End generated code
 %
 
 
-\keywords{abstract comics, persuasion, information framing, social proof, hierarchical bayesian models}
+\keywords{Abstract comics; Persuasion; Information framing; Social proof; Hierarchical Bayesian models}
 
 
 
 
 \maketitle
+
+\renewcommand{\shortauthors}{Ziang Xiao et al.}
 
 % The default list of authors is too long for headers.
 \input{2-intro.tex}
@@ -192,7 +185,9 @@ language=american]{biblatex}
 \input{6-model-criticism.tex}
 \input{7-discussion}
 \input{8-conclusion}
+\begin{acks}
 \input{10-acknowledgment}
+\end{acks}
 \printbibliography
 \input{9-appendix.tex}
 \end{document}
